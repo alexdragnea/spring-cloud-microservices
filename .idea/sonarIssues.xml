@@ -18,7 +18,47 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/book-service/src/main/java/net/dg/bookservice/BookServiceApp.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/book-service/src/main/java/net/dg/bookservice/controller/BookController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/book-service/src/main/java/net/dg/bookservice/dto/RatingDTO.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/book-service/src/main/java/net/dg/bookservice/dto/ResponseTemplate.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/book-service/src/main/java/net/dg/bookservice/model/Book.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/book-service/src/main/java/net/dg/bookservice/service/BookService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/book-service/src/main/java/net/dg/bookservice/service/impl/BookServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/book-service/src/main/java/net/dg/orderservice/BookServiceApp.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/book-service/src/main/java/net/dg/orderservice/constants/Constants.java">
           <value>
             <set />
           </value>
@@ -79,6 +119,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/gateway/src/main/java/net/dg/gateway/GatewayApplication.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/gateway/src/main/java/net/dg/gateway/config/HttpCLientConfig.java">
           <value>
             <set />
           </value>
@@ -149,6 +194,91 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/raiting-service/src/main/java/net/dg/raitingservice/RaitingServiceApplication.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/raiting-service/src/main/java/net/dg/raitingservice/controller/RaitingController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/raiting-service/src/main/java/net/dg/raitingservice/entity/Raiting.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/raiting-service/src/main/java/net/dg/raitingservice/entity/Rating.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/raiting-service/src/main/java/net/dg/raitingservice/repository/RaitingRepository.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/raiting-service/src/main/java/net/dg/raitingservice/repository/RatingRepository.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/raiting-service/src/main/java/net/dg/raitingservice/service/RaitingService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/raiting-service/src/main/java/net/dg/raitingservice/service/RatingService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/raiting-service/src/main/java/net/dg/ratingservice/RatingServiceApplication.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/raiting-service/src/main/java/net/dg/ratingservice/consumer/BookRestConsumer.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/raiting-service/src/main/java/net/dg/ratingservice/controller/RatingController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/raiting-service/src/main/java/net/dg/ratingservice/dto/BookDTO.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/raiting-service/src/main/java/net/dg/ratingservice/dto/ResponseTemplate.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/raiting-service/src/main/java/net/dg/ratingservice/entity/Rating.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/raiting-service/src/main/java/net/dg/ratingservice/exceptions/RatingNotFoundException.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/raiting-service/src/main/java/net/dg/ratingservice/repository/RatingRepository.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/raiting-service/src/main/java/net/dg/ratingservice/service/RatingService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/raiting-service/src/main/java/net/dg/ratingservice/service/impl/RatingServiceImpl.java">
           <value>
             <set />
           </value>

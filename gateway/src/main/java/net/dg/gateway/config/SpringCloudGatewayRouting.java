@@ -9,10 +9,16 @@ import org.springframework.context.annotation.Configuration;
 public class SpringCloudGatewayRouting {
 
     @Bean
-    public RouteLocator configureRoute(RouteLocatorBuilder builder) {
+    public RouteLocator raitingRoute(RouteLocatorBuilder builder) {
         return builder.routes()
-                .route("paymentId", r->r.path("/raiting/**").uri("lb://RAITING-SERVICE")) //dynamic routing
-                .route("orderId", r->r.path("/book/**").uri("lb://BOOK-SERVICE")) //dynamic routing
+                .route("rating-service", r -> r.path("/rating/**").uri("lb://RATING-SERVICE")) //static routing
+                .build();
+    }
+
+    @Bean
+    public RouteLocator bookRoute(RouteLocatorBuilder builder) {
+        return builder.routes()
+                .route("book-service", r -> r.path("/book/**").uri("lb://BOOK-SERVICE")) //static routing
                 .build();
     }
 }
