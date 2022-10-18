@@ -1,10 +1,10 @@
 package net.dg.ratingservice.service.impl;
 
 import lombok.AllArgsConstructor;
+import net.dg.bookservice.exceptions.BookNotFoundException;
 import net.dg.ratingservice.dto.Book;
 import net.dg.ratingservice.dto.ResponseTemplate;
 import net.dg.ratingservice.entity.Rating;
-import net.dg.ratingservice.exceptions.BookNotFoundException;
 import net.dg.ratingservice.exceptions.RatingNotFoundException;
 import net.dg.ratingservice.feign.consumer.BookRestConsumer;
 import net.dg.ratingservice.repository.RatingRepository;

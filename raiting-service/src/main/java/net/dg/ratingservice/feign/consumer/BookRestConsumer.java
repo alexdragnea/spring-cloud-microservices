@@ -1,7 +1,7 @@
 package net.dg.ratingservice.feign.consumer;
 
+import net.dg.bookservice.exceptions.BookNotFoundException;
 import net.dg.ratingservice.dto.Book;
-import net.dg.ratingservice.exceptions.BookNotFoundException;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;

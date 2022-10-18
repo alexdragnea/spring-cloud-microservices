@@ -2,9 +2,9 @@ package net.dg.ratingservice.controller;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import net.dg.bookservice.exceptions.BookNotFoundException;
 import net.dg.ratingservice.dto.ResponseTemplate;
 import net.dg.ratingservice.entity.Rating;
-import net.dg.ratingservice.exceptions.BookNotFoundException;
 import net.dg.ratingservice.exceptions.RatingNotFoundException;
 import net.dg.ratingservice.service.RatingService;
 import net.dg.ratingservice.service.validation.RatingValidationService;
@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.ValidationException;
 import java.util.List;
-import java.util.logging.Logger;
 
 @RestController
 @RequestMapping("/rating")
@@ -25,8 +24,6 @@ public class RatingController {
 
     private final RatingService ratingService;
     private final RatingValidationService ratingValidationService;
-
-    Logger logger = Logger.getLogger(RatingController.class.getName());
 
     @GetMapping
     public List<Rating> getAllRatings() {
@@ -43,7 +40,7 @@ public class RatingController {
 
             return new ResponseEntity<>(ratingToBeSaved, HttpStatus.CREATED);
         } catch (ValidationException ex) {
-            logger.info(ex.getMessage());
+            log.info(ex.getMessage());
             throw new ValidationException(ex.getMessage());
         }
     }

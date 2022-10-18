@@ -1,8 +1,8 @@
 package net.dg.ratingservice.service;
 
+import net.dg.bookservice.exceptions.BookNotFoundException;
 import net.dg.ratingservice.dto.ResponseTemplate;
 import net.dg.ratingservice.entity.Rating;
-import net.dg.ratingservice.exceptions.BookNotFoundException;
 import net.dg.ratingservice.exceptions.RatingNotFoundException;
 
 import java.util.List;
