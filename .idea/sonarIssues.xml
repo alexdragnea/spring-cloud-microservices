@@ -3,6 +3,11 @@
   <component name="issues">
     <option name="index">
       <map>
+        <entry key="/Dummy.txt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="/a.dummy">
           <value>
             <set />
@@ -23,6 +28,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/book-service/src/main/java/net/dg/bookservice/constants/Constants.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/book-service/src/main/java/net/dg/bookservice/constants/ServiceConstants.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/book-service/src/main/java/net/dg/bookservice/controller/BookController.java">
           <value>
             <set />
@@ -38,6 +53,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/book-service/src/main/java/net/dg/bookservice/exceptions/BookControllerAdvice.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/book-service/src/main/java/net/dg/bookservice/exceptions/BookNotFoundException.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/book-service/src/main/java/net/dg/bookservice/model/Book.java">
           <value>
             <set />
@@ -49,6 +74,21 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/book-service/src/main/java/net/dg/bookservice/service/impl/BookServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/book-service/src/main/java/net/dg/bookservice/service/validation/BookValidationService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/book-service/src/main/java/net/dg/bookservice/service/validation/RatingValidation.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/book-service/src/main/java/net/dg/bookservice/service/validation/RatingValidationService.java">
           <value>
             <set />
           </value>
@@ -238,12 +278,37 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/raiting-service/src/main/java/net/dg/ratingservice/config/AppConfig.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/raiting-service/src/main/java/net/dg/ratingservice/config/SpringFoxConfig.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/raiting-service/src/main/java/net/dg/ratingservice/constants/Constants.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/raiting-service/src/main/java/net/dg/ratingservice/constants/ServiceConstants.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/raiting-service/src/main/java/net/dg/ratingservice/consumer/BookRestConsumer.java">
           <value>
             <set />
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/raiting-service/src/main/java/net/dg/ratingservice/controller/RatingController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/raiting-service/src/main/java/net/dg/ratingservice/dto/Book.java">
           <value>
             <set />
           </value>
@@ -263,7 +328,42 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/raiting-service/src/main/java/net/dg/ratingservice/exceptions/BookNotFoundException.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/raiting-service/src/main/java/net/dg/ratingservice/exceptions/ControllerAdvice.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/raiting-service/src/main/java/net/dg/ratingservice/exceptions/RatingControllerAdvice.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/raiting-service/src/main/java/net/dg/ratingservice/exceptions/RatingNotFoundException.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/raiting-service/src/main/java/net/dg/ratingservice/feign/consumer/BookRestConsumer.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/raiting-service/src/main/java/net/dg/ratingservice/feign/errordecoder/FeignErrorDecoder.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/raiting-service/src/main/java/net/dg/ratingservice/feign/retryer/CustomRetryer.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/raiting-service/src/main/java/net/dg/ratingservice/model/ErrorResponse.java">
           <value>
             <set />
           </value>
@@ -279,6 +379,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/raiting-service/src/main/java/net/dg/ratingservice/service/impl/RatingServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/raiting-service/src/main/java/net/dg/ratingservice/service/validation/RatingValidationService.java">
           <value>
             <set />
           </value>

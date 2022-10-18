@@ -1,23 +1,32 @@
 package net.dg.ratingservice.controller;
 
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import net.dg.ratingservice.dto.ResponseTemplate;
 import net.dg.ratingservice.entity.Rating;
+import net.dg.ratingservice.exceptions.BookNotFoundException;
 import net.dg.ratingservice.exceptions.RatingNotFoundException;
 import net.dg.ratingservice.service.RatingService;
+import net.dg.ratingservice.service.validation.RatingValidationService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.ValidationException;
 import java.util.List;
+import java.util.logging.Logger;
 
 @RestController
 @RequestMapping("/rating")
 @AllArgsConstructor
+@Slf4j
 public class RatingController {
 
     private final RatingService ratingService;
+    private final RatingValidationService ratingValidationService;
+
+    Logger logger = Logger.getLogger(RatingController.class.getName());
 
     @GetMapping
     public List<Rating> getAllRatings() {
@@ -25,17 +34,40 @@ public class RatingController {
     }
 
     @PostMapping
-    public Rating createBook(@RequestBody Rating rating) {
-        return ratingService.createRating(rating);
+    public ResponseEntity<Rating> createRating(@RequestBody Rating rating) {
+
+        try {
+            ratingValidationService.validate(rating);
+
+            Rating ratingToBeSaved = ratingService.createRating(rating);
+
+            return new ResponseEntity<>(ratingToBeSaved, HttpStatus.CREATED);
+        } catch (ValidationException ex) {
+            logger.info(ex.getMessage());
+            throw new ValidationException(ex.getMessage());
+        }
     }
 
     @GetMapping(path = "/{ratingId}", produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<Rating> getRatingById(@PathVariable Long ratingId) throws RatingNotFoundException {
+    public ResponseEntity<Rating> getRatingById(@PathVariable Long ratingId) {
 
         try {
             Rating existingRating = ratingService.findRatingById(ratingId);
-            return new ResponseEntity<>(existingRating, HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(existingRating, HttpStatus.FOUND);
         } catch (RatingNotFoundException ex) {
+            log.info(ex.getMessage());
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @GetMapping(path = "/book/{bookId}", produces = {MediaType.APPLICATION_JSON_VALUE})
+    public ResponseEntity<List<Rating>> getRatingsByBookId(@PathVariable Long bookId) {
+
+        try {
+            List<Rating> existingRating = ratingService.findRatingsByBookId(bookId);
+            return new ResponseEntity<>(existingRating, HttpStatus.FOUND);
+        } catch (RatingNotFoundException ex) {
+            log.info(ex.getMessage());
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
@@ -45,7 +77,8 @@ public class RatingController {
 
         try {
             ratingService.deleteRating(ratingId);
-        } catch (RatingNotFoundException exception) {
+        } catch (RatingNotFoundException ex) {
+            log.info(ex.getMessage());
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
@@ -53,7 +86,7 @@ public class RatingController {
     }
 
     @PatchMapping(path = "/{ratingId}", produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<Rating> updateRating(@PathVariable Long ratingId, @RequestBody Rating updatedRating) throws RatingNotFoundException {
+    public ResponseEntity<Rating> updateRating(@PathVariable Long ratingId, @RequestBody Rating updatedRating) {
 
         try {
             Rating existingRating = ratingService.findRatingById(ratingId);
@@ -62,16 +95,22 @@ public class RatingController {
 
             ratingService.updateRating(existingRating, ratingId);
             return new ResponseEntity<>(existingRating, HttpStatus.OK);
-        } catch (RatingNotFoundException exception) {
-
+        } catch (RatingNotFoundException ex) {
+            log.info(ex.getMessage());
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
     }
 
     @GetMapping(value = "/{bookId}/book")
-    public ResponseTemplate getBookWithRatings(@PathVariable("bookId") Long bookId) {
-        return ratingService.getBookWithRatings(bookId);
+    public ResponseEntity<ResponseTemplate> getBookWithRatings(@PathVariable("bookId") Long bookId) {
+        try {
+            ResponseTemplate responseTemplate = ratingService.getBookWithRatings(bookId);
+            return new ResponseEntity<>(responseTemplate, HttpStatus.OK);
+        } catch (BookNotFoundException ex) {
+            log.info(ex.getMessage());
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
 }

@@ -1,11 +1,10 @@
 package net.dg.ratingservice.exceptions;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ResponseStatus;
+import net.dg.ratingservice.constants.ServiceConstants;
 
-@ResponseStatus(HttpStatus.NOT_FOUND)
 public class RatingNotFoundException extends RuntimeException {
-    public RatingNotFoundException(String message) {
-        super(message);
+
+    public RatingNotFoundException() {
+        super(ServiceConstants.RATING_NOT_FOUND_EXCEPTION_MSG);
     }
 }

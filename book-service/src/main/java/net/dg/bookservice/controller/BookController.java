@@ -5,11 +5,13 @@ import lombok.extern.slf4j.Slf4j;
 import net.dg.bookservice.exceptions.BookNotFoundException;
 import net.dg.bookservice.model.Book;
 import net.dg.bookservice.service.BookService;
+import net.dg.bookservice.service.validation.BookValidationService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.ValidationException;
 import java.util.List;
 
 @RestController
@@ -19,6 +21,7 @@ import java.util.List;
 public class BookController {
 
     private BookService bookService;
+    private BookValidationService bookValidationService;
 
     @GetMapping
     public List<Book> getAllBooks() {
@@ -26,8 +29,17 @@ public class BookController {
     }
 
     @PostMapping
-    public Book createBook(@RequestBody Book book) {
-        return bookService.createBook(book);
+    public ResponseEntity<Book> createBook(@RequestBody Book book) {
+
+        try {
+            bookValidationService.validate(book);
+
+            Book bookToBeSaved = bookService.createBook(book);
+
+            return new ResponseEntity<>(bookToBeSaved, HttpStatus.CREATED);
+        } catch (ValidationException exception) {
+            throw new ValidationException(exception.getMessage());
+        }
     }
 
     @GetMapping(path = "/{bookId}", produces = {MediaType.APPLICATION_JSON_VALUE})
@@ -58,6 +70,8 @@ public class BookController {
 
         try {
             Book existingBook = bookService.findBookById(bookId);
+
+            bookValidationService.validate(updatedBook);
             existingBook.setTitle(updatedBook.getTitle());
             existingBook.setAuthor(updatedBook.getAuthor());
 

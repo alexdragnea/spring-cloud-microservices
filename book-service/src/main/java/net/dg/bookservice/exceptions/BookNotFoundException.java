@@ -1,11 +1,10 @@
 package net.dg.bookservice.exceptions;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ResponseStatus;
+import net.dg.bookservice.constants.ServiceConstants;
 
-@ResponseStatus(HttpStatus.NOT_FOUND)
 public class BookNotFoundException extends RuntimeException {
-    public BookNotFoundException(String message) {
-        super(message);
+
+    public BookNotFoundException() {
+        super(ServiceConstants.BOOK_NOT_FOUND_EXCEPTION);
     }
 }

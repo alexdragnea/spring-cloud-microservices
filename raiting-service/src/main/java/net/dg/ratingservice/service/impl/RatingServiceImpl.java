@@ -1,17 +1,19 @@
 package net.dg.ratingservice.service.impl;
 
 import lombok.AllArgsConstructor;
-import net.dg.ratingservice.consumer.BookRestConsumer;
-import net.dg.ratingservice.dto.BookDTO;
+import net.dg.ratingservice.dto.Book;
 import net.dg.ratingservice.dto.ResponseTemplate;
 import net.dg.ratingservice.entity.Rating;
+import net.dg.ratingservice.exceptions.BookNotFoundException;
 import net.dg.ratingservice.exceptions.RatingNotFoundException;
+import net.dg.ratingservice.feign.consumer.BookRestConsumer;
 import net.dg.ratingservice.repository.RatingRepository;
 import net.dg.ratingservice.service.RatingService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -24,7 +26,7 @@ public class RatingServiceImpl implements RatingService {
 
     @Override
     public List<Rating> findRatingsByBookId(Long bookId) throws RatingNotFoundException {
-        return ratingRepository.findRatingsByBookId(bookId).orElseThrow(() -> new RatingNotFoundException("Rating not found"));
+        return ratingRepository.findRatingsByBookId(bookId).orElseThrow(() -> new RatingNotFoundException());
     }
 
     @Override
@@ -33,8 +35,8 @@ public class RatingServiceImpl implements RatingService {
     }
 
     @Override
-    public Rating findRatingById(Long ratingId) {
-        return ratingRepository.findRatingById(ratingId).orElseThrow(() -> new RatingNotFoundException("Rating not found exception"));
+    public Rating findRatingById(Long ratingId) throws RatingNotFoundException {
+        return ratingRepository.findRatingById(ratingId).orElseThrow(() -> new RatingNotFoundException());
     }
 
     @Override
@@ -47,7 +49,7 @@ public class RatingServiceImpl implements RatingService {
         Optional<Rating> existingRating = ratingRepository.findRatingById(ratingId);
         if (existingRating.isPresent()) {
             ratingRepository.deleteById(ratingId);
-        } else throw new RatingNotFoundException("Rating not found");
+        } else throw new RatingNotFoundException();
     }
 
     @Override
@@ -56,17 +58,20 @@ public class RatingServiceImpl implements RatingService {
     }
 
     @Override
-    public ResponseTemplate getBookWithRatings(Long bookId) {
+    public ResponseTemplate getBookWithRatings(Long bookId) throws BookNotFoundException {
         ResponseTemplate responseTemplate = new ResponseTemplate();
         Optional<List<Rating>> rating = ratingRepository.findRatingsByBookId(bookId);
 
 
-        BookDTO bookDTO = bookRestConsumer.getBookById(bookId);
+        Book book = bookRestConsumer.getBookById(bookId);
+        if (Objects.isNull(book)) {
+            throw new BookNotFoundException();
+        } else {
 
+            responseTemplate.setBook(book);
 
-        responseTemplate.setBookDTO(bookDTO);
-
-        rating.ifPresent(responseTemplate::setRatingList);
+            rating.ifPresent(responseTemplate::setRatingList);
+        }
 
         return responseTemplate;
     }

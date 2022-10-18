@@ -6,15 +6,11 @@ import net.dg.bookservice.exceptions.BookNotFoundException;
 import net.dg.bookservice.model.Book;
 import net.dg.bookservice.repository.BookRepository;
 import net.dg.bookservice.service.BookService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 import java.util.Optional;
-
-import static net.dg.bookservice.constants.Constants.BOOK_NOT_FOUND_EXCEPTION;
 
 @Service
 @Transactional
@@ -33,7 +29,7 @@ public class BookServiceImpl implements BookService {
     @Override
     public Book findBookById(Long bookId) throws BookNotFoundException {
 
-        return bookRepository.findBookById(bookId).orElseThrow(() -> new BookNotFoundException(BOOK_NOT_FOUND_EXCEPTION));
+        return bookRepository.findBookById(bookId).orElseThrow(() -> new BookNotFoundException());
     }
 
     @Override
@@ -46,7 +42,7 @@ public class BookServiceImpl implements BookService {
         Optional<Book> existingBook = bookRepository.findBookById(bookId);
         if (existingBook.isPresent()) {
             bookRepository.deleteById(bookId);
-        } else throw new BookNotFoundException(BOOK_NOT_FOUND_EXCEPTION);
+        } else throw new BookNotFoundException();
 
     }
 
