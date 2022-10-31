@@ -12,6 +12,8 @@ import java.util.List;
 @NoArgsConstructor
 public class ResponseTemplate {
 
-    private Book book;
-    private List<Rating> ratingList;
+	private Book book;
+
+	private List<Rating> ratingList;
+
 }

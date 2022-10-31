@@ -13,12 +13,11 @@ import java.util.Map;
 @RestControllerAdvice
 public class BookControllerAdvice extends ResponseEntityExceptionHandler {
 
-    @ExceptionHandler(value = {ValidationException.class , Exception.class})
-    public ResponseEntity<Map<String, String>> globalExceptionHandler(Exception e) {
-        e.printStackTrace();
-        Map<String, String> message = Collections.singletonMap("message", e.getMessage());
-        return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
-    }
-
+	@ExceptionHandler(value = { ValidationException.class, Exception.class })
+	public ResponseEntity<Map<String, String>> globalExceptionHandler(Exception e) {
+		e.printStackTrace();
+		Map<String, String> message = Collections.singletonMap("message", e.getMessage());
+		return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
+	}
 
 }

@@ -18,39 +18,39 @@ import java.util.Optional;
 @Slf4j
 public class BookServiceImpl implements BookService {
 
+	private final BookRepository bookRepository;
 
-    private final BookRepository bookRepository;
+	@Override
+	public List<Book> findAllBooks() {
+		return bookRepository.findAll();
+	}
 
-    @Override
-    public List<Book> findAllBooks() {
-        return bookRepository.findAll();
-    }
+	@Override
+	public Book findBookById(Long bookId) throws BookNotFoundException {
 
-    @Override
-    public Book findBookById(Long bookId) throws BookNotFoundException {
+		return bookRepository.findBookById(bookId).orElseThrow(() -> new BookNotFoundException());
+	}
 
-        return bookRepository.findBookById(bookId).orElseThrow(() -> new BookNotFoundException());
-    }
+	@Override
+	public Book createBook(Book book) {
+		return bookRepository.save(book);
+	}
 
-    @Override
-    public Book createBook(Book book) {
-        return bookRepository.save(book);
-    }
+	@Override
+	public void deleteBook(Long bookId) {
+		Optional<Book> existingBook = bookRepository.findBookById(bookId);
+		if (existingBook.isPresent()) {
+			bookRepository.deleteById(bookId);
+		}
+		else
+			throw new BookNotFoundException();
 
-    @Override
-    public void deleteBook(Long bookId) {
-        Optional<Book> existingBook = bookRepository.findBookById(bookId);
-        if (existingBook.isPresent()) {
-            bookRepository.deleteById(bookId);
-        } else throw new BookNotFoundException();
+	}
 
-    }
+	@Override
+	public void updateBook(Book book, Long bookId) {
 
-    @Override
-    public void updateBook(Book book, Long bookId) {
-
-        bookRepository.save(book);
-    }
+		bookRepository.save(book);
+	}
 
 }
-

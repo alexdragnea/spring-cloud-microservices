@@ -18,6 +18,26 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../E-Commerce-SpringBoot/E-Commerce-SpringBoot/src/main/resources/application.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../TodoApp-SpringBoot/SpringBoot-Todo-App/src/main/resources/application.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../TodoApp-SpringBoot/SpringBoot-Todo-App/src/main/resources/templates/index.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../TodoApp-SpringBoot/SpringBoot-Todo-App/src/main/resources/templates/new_todo.html">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/book-service/pom.xml">
           <value>
             <set />
@@ -134,6 +154,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/book-service/src/main/resources/application.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/checkstyle.xml">
           <value>
             <set />
           </value>
@@ -409,6 +434,21 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/rating-service/src/main/resources/application.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/target/checkstyle-cachefile">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/target/checkstyle-checker.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/target/checkstyle-result.xml">
           <value>
             <set />
           </value>

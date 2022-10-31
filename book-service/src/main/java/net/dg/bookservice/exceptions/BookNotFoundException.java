@@ -4,7 +4,8 @@ import net.dg.bookservice.constants.ServiceConstants;
 
 public class BookNotFoundException extends RuntimeException {
 
-    public BookNotFoundException() {
-        super(ServiceConstants.BOOK_NOT_FOUND_EXCEPTION);
-    }
+	public BookNotFoundException() {
+		super(ServiceConstants.BOOK_NOT_FOUND_EXCEPTION);
+	}
+
 }

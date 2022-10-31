@@ -15,10 +15,12 @@ import javax.persistence.Id;
 @Data
 public class Book {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String author;
-    private String title;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+
+	private String author;
+
+	private String title;
 
 }

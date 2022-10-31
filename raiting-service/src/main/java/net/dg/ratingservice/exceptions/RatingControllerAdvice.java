@@ -15,17 +15,17 @@ import java.util.Map;
 @RestControllerAdvice
 public class RatingControllerAdvice extends ResponseEntityExceptionHandler {
 
-    @ExceptionHandler(value = {FeignException.class, ValidationException.class})
-    public ResponseEntity<Map<String, String>> globalExceptionHandler(Exception e) {
-        e.printStackTrace();
-        Map<String, String> message = Collections.singletonMap("message", e.getMessage());
-        return new ResponseEntity<>(message, HttpStatus.INTERNAL_SERVER_ERROR);
-    }
+	@ExceptionHandler(value = { FeignException.class, ValidationException.class })
+	public ResponseEntity<Map<String, String>> globalExceptionHandler(Exception e) {
+		e.printStackTrace();
+		Map<String, String> message = Collections.singletonMap("message", e.getMessage());
+		return new ResponseEntity<>(message, HttpStatus.INTERNAL_SERVER_ERROR);
+	}
 
-    @ExceptionHandler({RetryableException.class})
-    public ResponseEntity<String> retryException(RetryableException e) {
-        String message = "Service unavailable at the moment, please try again later.";
-        return new ResponseEntity<>(message, HttpStatus.SERVICE_UNAVAILABLE);
-    }
+	@ExceptionHandler({ RetryableException.class })
+	public ResponseEntity<String> retryException(RetryableException e) {
+		String message = "Service unavailable at the moment, please try again later.";
+		return new ResponseEntity<>(message, HttpStatus.SERVICE_UNAVAILABLE);
+	}
 
 }

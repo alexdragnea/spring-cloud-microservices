@@ -8,8 +8,9 @@ import reactor.netty.http.client.HttpClient;
 @Configuration
 public class HttpCLientConfig {
 
-    @Bean
-    public HttpClient httpClient() {
-        return HttpClient.create().resolver(DefaultAddressResolverGroup.INSTANCE);
-    }
+	@Bean
+	public HttpClient httpClient() {
+		return HttpClient.create().resolver(DefaultAddressResolverGroup.INSTANCE);
+	}
+
 }

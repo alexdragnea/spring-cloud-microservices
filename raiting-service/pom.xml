@@ -8,6 +8,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
+    <groupId>net.dg</groupId>
     <artifactId>rating-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>rating-service</name>
@@ -15,6 +16,7 @@
     <properties>
         <java.version>11</java.version>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -60,14 +62,6 @@
             <groupId>jakarta.validation</groupId>
             <artifactId>jakarta.validation-api</artifactId>
         </dependency>
-        <dependency>
-            <groupId>net.dg</groupId>
-            <artifactId>book-service</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
-
-
     </dependencies>
     <dependencyManagement>
         <dependencies>

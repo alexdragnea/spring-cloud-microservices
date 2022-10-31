@@ -9,8 +9,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Book {
 
-    private Long id;
-    private String author;
-    private String title;
+	private Long id;
+
+	private String author;
+
+	private String title;
 
 }

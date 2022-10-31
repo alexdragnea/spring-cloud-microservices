@@ -9,42 +9,44 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 public class CustomRetryer implements Retryer {
 
-    private final int maxAttempts;
-    private final long backoff;
-    int attempt;
+	private final int maxAttempts;
 
-    /**
-     * Waits for 10
-     * second before retrying.
-     */
-    public CustomRetryer() {
-        this(1000, 3);
-    }
+	private final long backoff;
 
-    public CustomRetryer(long backoff,
-                         int maxAttempts) {
-        this.backoff = backoff;
-        this.maxAttempts = maxAttempts;
-        this.attempt = 0;
-    }
+	int attempt;
 
-    public void continueOrPropagate(RetryableException e) {
+	/**
+	 * Waits for 10 second before retrying.
+	 */
+	public CustomRetryer() {
+		this(1000, 3);
+	}
 
-        if (attempt++ >= maxAttempts) {
-            throw e;
-        }
+	public CustomRetryer(long backoff, int maxAttempts) {
+		this.backoff = backoff;
+		this.maxAttempts = maxAttempts;
+		this.attempt = 0;
+	}
 
-        try {
-            TimeUnit.MILLISECONDS.sleep(backoff);
-        } catch (InterruptedException ex) {
+	public void continueOrPropagate(RetryableException e) {
 
-        }
+		if (attempt++ >= maxAttempts) {
+			throw e;
+		}
 
-        log.info("Retrying: " + e.request().url() + " attempt " + attempt);
-    }
+		try {
+			TimeUnit.MILLISECONDS.sleep(backoff);
+		}
+		catch (InterruptedException ex) {
 
-    @Override
-    public Retryer clone() {
-        return new CustomRetryer(backoff, maxAttempts);
-    }
+		}
+
+		log.info("Retrying: " + e.request().url() + " attempt " + attempt);
+	}
+
+	@Override
+	public Retryer clone() {
+		return new CustomRetryer(backoff, maxAttempts);
+	}
+
 }

@@ -9,20 +9,19 @@ import java.util.Date;
 
 public class FeignErrorDecoder implements ErrorDecoder {
 
-    private final ErrorDecoder defaultErrorDecoder = new Default();
+	private final ErrorDecoder defaultErrorDecoder = new Default();
 
-    @Override
-    public Exception decode(String methodKey,
-                            Response response) {
+	@Override
+	public Exception decode(String methodKey, Response response) {
 
-        if (response.status() == HttpStatus.SERVICE_UNAVAILABLE.value() || response.status() == HttpStatus.REQUEST_TIMEOUT.value()) {
+		if (response.status() == HttpStatus.SERVICE_UNAVAILABLE.value()
+				|| response.status() == HttpStatus.REQUEST_TIMEOUT.value()) {
 
-            return new RetryableException(response.status(), methodKey, null,
-                    new Date(System.currentTimeMillis()),
-                    response.request());
-        }
-        return defaultErrorDecoder.decode(methodKey, response);
+			return new RetryableException(response.status(), methodKey, null, new Date(System.currentTimeMillis()),
+					response.request());
+		}
+		return defaultErrorDecoder.decode(methodKey, response);
 
+	}
 
-    }
 }

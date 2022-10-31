@@ -20,67 +20,74 @@ import java.util.List;
 @Slf4j
 public class BookController {
 
-    private BookService bookService;
-    private BookValidationService bookValidationService;
+	private BookService bookService;
 
-    @GetMapping
-    public List<Book> getAllBooks() {
-        return bookService.findAllBooks();
-    }
+	private BookValidationService bookValidationService;
 
-    @PostMapping
-    public ResponseEntity<Book> createBook(@RequestBody Book book) {
+	@GetMapping
+	public List<Book> getAllBooks() {
+		return bookService.findAllBooks();
+	}
 
-        try {
-            bookValidationService.validate(book);
+	@PostMapping
+	public ResponseEntity<Book> createBook(@RequestBody Book book) {
 
-            Book bookToBeSaved = bookService.createBook(book);
+		try {
+			bookValidationService.validate(book);
 
-            return new ResponseEntity<>(bookToBeSaved, HttpStatus.CREATED);
-        } catch (ValidationException exception) {
-            throw new ValidationException(exception.getMessage());
-        }
-    }
+			Book bookToBeSaved = bookService.createBook(book);
 
-    @GetMapping(path = "/{bookId}", produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<Book> getBookById(@PathVariable Long bookId) throws BookNotFoundException {
+			return new ResponseEntity<>(bookToBeSaved, HttpStatus.CREATED);
+		}
+		catch (ValidationException exception) {
+			throw new ValidationException(exception.getMessage());
+		}
+	}
 
-        try {
-            Book existingBook = bookService.findBookById(bookId);
-            return new ResponseEntity<>(existingBook, HttpStatus.NOT_FOUND);
-        } catch (BookNotFoundException ex) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    }
+	@GetMapping(path = "/{bookId}", produces = { MediaType.APPLICATION_JSON_VALUE })
+	public ResponseEntity<Book> getBookById(@PathVariable Long bookId) throws BookNotFoundException {
 
-    @DeleteMapping(path = "/{bookId}", produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<Book> deleteBookById(@PathVariable Long bookId) {
+		try {
+			Book existingBook = bookService.findBookById(bookId);
+			return new ResponseEntity<>(existingBook, HttpStatus.NOT_FOUND);
+		}
+		catch (BookNotFoundException ex) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
 
-        try {
-            bookService.deleteBook(bookId);
-        } catch (BookNotFoundException exception) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+	@DeleteMapping(path = "/{bookId}", produces = { MediaType.APPLICATION_JSON_VALUE })
+	public ResponseEntity<Book> deleteBookById(@PathVariable Long bookId) {
 
-        return new ResponseEntity<>(HttpStatus.OK);
-    }
+		try {
+			bookService.deleteBook(bookId);
+		}
+		catch (BookNotFoundException exception) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
 
-    @PatchMapping(path = "/{bookId}", produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<Book> updateBook(@PathVariable Long bookId, @RequestBody Book updatedBook) throws BookNotFoundException {
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
 
-        try {
-            Book existingBook = bookService.findBookById(bookId);
+	@PatchMapping(path = "/{bookId}", produces = { MediaType.APPLICATION_JSON_VALUE })
+	public ResponseEntity<Book> updateBook(@PathVariable Long bookId, @RequestBody Book updatedBook)
+			throws BookNotFoundException {
 
-            bookValidationService.validate(updatedBook);
-            existingBook.setTitle(updatedBook.getTitle());
-            existingBook.setAuthor(updatedBook.getAuthor());
+		try {
+			Book existingBook = bookService.findBookById(bookId);
 
-            bookService.updateBook(existingBook, bookId);
-            return new ResponseEntity<>(existingBook, HttpStatus.OK);
-        } catch (BookNotFoundException exception) {
+			bookValidationService.validate(updatedBook);
+			existingBook.setTitle(updatedBook.getTitle());
+			existingBook.setAuthor(updatedBook.getAuthor());
 
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+			bookService.updateBook(existingBook, bookId);
+			return new ResponseEntity<>(existingBook, HttpStatus.OK);
+		}
+		catch (BookNotFoundException exception) {
 
-    }
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+
+	}
+
 }

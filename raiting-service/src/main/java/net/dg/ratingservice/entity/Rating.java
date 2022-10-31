@@ -15,9 +15,12 @@ import javax.persistence.Id;
 @AllArgsConstructor
 public class Rating {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private Long bookId;
-    private int stars;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+
+	private Long bookId;
+
+	private int stars;
+
 }

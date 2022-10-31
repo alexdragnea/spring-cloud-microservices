@@ -9,14 +9,14 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AppConfig {
 
-    @Bean
-    public FeignErrorDecoder feignErrorDecoder() {
-        return new FeignErrorDecoder();
-    }
+	@Bean
+	public FeignErrorDecoder feignErrorDecoder() {
+		return new FeignErrorDecoder();
+	}
 
-    @Bean
-    public Retryer retryer() {
-        return new CustomRetryer();
-    }
+	@Bean
+	public Retryer retryer() {
+		return new CustomRetryer();
+	}
 
 }

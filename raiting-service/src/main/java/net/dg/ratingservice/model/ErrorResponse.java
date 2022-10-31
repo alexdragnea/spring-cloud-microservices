@@ -2,19 +2,20 @@ package net.dg.ratingservice.model;
 
 import java.util.List;
 
-public class ErrorResponse
-{
-    public ErrorResponse(String message, List<String> details) {
-        super();
-        this.message = message;
-        this.details = details;
-    }
+public class ErrorResponse {
 
-    //General error message about nature of error
-    private String message;
+	public ErrorResponse(String message, List<String> details) {
+		super();
+		this.message = message;
+		this.details = details;
+	}
 
-    //Specific errors in API request processing
-    private List<String> details;
+	// General error message about nature of error
+	private String message;
 
-    //Getter and setters
+	// Specific errors in API request processing
+	private List<String> details;
+
+	// Getter and setters
+
 }
