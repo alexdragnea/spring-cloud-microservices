@@ -1,0 +1,8 @@
+
+y
+java:S2142("^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(Ê‰¬åÿÿÿÿÿ
+C	java:S108(")Either remove or fill this block of code.(Ê‰¬åÿÿÿÿÿ
+n
+java:S29750"SRemove this "clone" implementation; use a copy constructor or copy factory instead.(¦‘çáüÿÿÿÿ
+c
+java:S11820"HUse super.clone() to create and seed the cloned instance to be returned.(¦‘çáüÿÿÿÿ

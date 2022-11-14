@@ -48,6 +48,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/book-service/src/main/java/net/dg/bookservice/config/DbLoader.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/book-service/src/main/java/net/dg/bookservice/config/SpringSecurityConfig.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/book-service/src/main/java/net/dg/bookservice/constants/Constants.java">
           <value>
             <set />
@@ -88,12 +98,27 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/book-service/src/main/java/net/dg/bookservice/repository/UserRepository.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/book-service/src/main/java/net/dg/bookservice/service/BookService.java">
           <value>
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/book-service/src/main/java/net/dg/bookservice/service/UserService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/book-service/src/main/java/net/dg/bookservice/service/impl/BookServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/book-service/src/main/java/net/dg/bookservice/service/impl/UserServiceImpl.java">
           <value>
             <set />
           </value>
@@ -188,7 +213,32 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/gateway/src/main/java/net/dg/gateway/config/ApiKeyConfig.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/gateway/src/main/java/net/dg/gateway/config/HttpCLientConfig.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/gateway/src/main/java/net/dg/gateway/config/HttpClientConfig.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/gateway/src/main/java/net/dg/gateway/config/ObjectMapper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/gateway/src/main/java/net/dg/gateway/config/RedisConfig.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/gateway/src/main/java/net/dg/gateway/config/RedisHashComponent.java">
           <value>
             <set />
           </value>
@@ -199,6 +249,26 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/gateway/src/main/java/net/dg/gateway/config/SpringCloudGatewayRouting.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/gateway/src/main/java/net/dg/gateway/constants/AppConstant.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/gateway/src/main/java/net/dg/gateway/domain/ApiKey.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/gateway/src/main/java/net/dg/gateway/filter/ApiKeyFilter.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/gateway/src/main/java/net/dg/gateway/filter/AuthFilter.java">
           <value>
             <set />
           </value>
@@ -434,6 +504,26 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/rating-service/src/main/resources/application.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/security-service/src/main/java/net/dg/securityservice/config/DbLoader.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/security-service/src/main/java/net/dg/securityservice/config/SpringSecurityConfig.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/security-service/src/main/java/net/dg/securityservice/entity/User.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/security-service/src/main/java/net/dg/securityservice/rest/SecurityServiceController.java">
           <value>
             <set />
           </value>
