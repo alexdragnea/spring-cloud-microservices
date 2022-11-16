@@ -7,3 +7,13 @@ H
 spring-cloud-project.iml,7\3\73b5c21dddc5ba06f4a3a9cfdd5dc3306ac688c1
 H
 raiting-service/mvnw.cmd,4\c\4cfcf583c4db2a001f9e0fd64242d7b3f082143a
+?
+gateway/pom.xml,4\b\4b316bc60d1cfae51045f6fc8e58a8ae31f03ff3
+7
+pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
+’
+braiting-service/src/main/java/net/dg/ratingservice/service/validation/RatingValidationService.java,c\d\cd4434ec65bb635271e53629ea2cbd18f5ee64b2
+m
+=gateway/src/main/java/net/dg/gateway/filter/ApiKeyFilter.java,1\c\1ca6f4e345b69eb9dc4fa8c96140ba14ce0e757f
+G
+raiting-service/pom.xml,0\0\009a8b8ae98ef6922424edb2ab6cda608baaf566

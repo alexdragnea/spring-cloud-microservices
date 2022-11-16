@@ -183,6 +183,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/book-service/src/test/java/net/dg/bookservice/constants/BookObjectMother.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/book-service/src/test/java/net/dg/bookservice/controller/BookControllerTest.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/checkstyle.xml">
           <value>
             <set />
