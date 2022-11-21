@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="raiting-service" />
+        <module name="rating-service" />
         <module name="book-service" />
         <module name="discovery-service" />
         <module name="gateway" />
@@ -15,7 +16,6 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="raiting-service2" target="11" />
-      <module name="rating-service" target="11" />
       <module name="security-service" target="11" />
     </bytecodeTargetLevel>
   </component>
