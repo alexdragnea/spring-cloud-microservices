@@ -49,7 +49,7 @@ public class BookController {
 
 		try {
 			Book existingBook = bookService.findBookById(bookId);
-			return new ResponseEntity<>(existingBook, HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>(existingBook, HttpStatus.OK);
 		}
 		catch (BookNotFoundException ex) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);

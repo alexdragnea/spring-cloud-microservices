@@ -17,3 +17,11 @@ m
 =gateway/src/main/java/net/dg/gateway/filter/ApiKeyFilter.java,1\c\1ca6f4e345b69eb9dc4fa8c96140ba14ce0e757f
 G
 raiting-service/pom.xml,0\0\009a8b8ae98ef6922424edb2ab6cda608baaf566
+|
+Lbook-service/src/main/java/net/dg/bookservice/controller/BookController.java,3\2\3276b54d8cc4b88b8c1a9bce180dbf6d62ffd987
+‹
+[book-service/src/main/java/net/dg/bookservice/service/validation/BookValidationService.java,8\4\84be4b97cd62ca641b3726b276aeccedb88c73bc
+v
+Fbook-service/src/main/java/net/dg/bookservice/service/BookService.java,c\b\cb9a20b48ffe6d822c7ef61419333808c7819684
+‚
+Rbook-service/src/main/java/net/dg/bookservice/exceptions/BookControllerAdvice.java,d\8\d89b67b6e3f6ac119e0acb3b7d1a9216741f536c

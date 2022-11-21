@@ -2,6 +2,7 @@ package net.dg.bookservice.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import net.dg.bookservice.constants.BookObjectMother;
+import net.dg.bookservice.exceptions.BookNotFoundException;
 import net.dg.bookservice.model.Book;
 import net.dg.bookservice.repository.BookRepository;
 import net.dg.bookservice.service.BookService;
@@ -16,6 +17,9 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import java.util.List;
 
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(BookController.class)
@@ -46,11 +50,43 @@ class BookControllerTest {
 	}
 
 	@Test
-	void testRetrieveListOfBooks() throws Exception {
+	void testRetrieveAllBooks() throws Exception {
 		List<Book> books = BookObjectMother.buildListOfBooks();
 
+		when(bookService.findAllBooks()).thenReturn(books);
+
 		mockMvc.perform(MockMvcRequestBuilders.get("/book").contentType(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk()).andExpect(jsonPath("$[0].id").isNotEmpty())
+				.andExpect(jsonPath("$[0].author").isNotEmpty()).andExpect(jsonPath("$[0].title").isNotEmpty())
+				.andExpect(jsonPath("$[0].author").isNotEmpty()).andExpect(jsonPath("$[1].id").isNotEmpty())
+				.andExpect(jsonPath("$[1].author").isNotEmpty()).andExpect(jsonPath("$[1].title").isNotEmpty())
+				.andExpect(jsonPath("$[1].author").isNotEmpty());
+	}
+
+	@Test
+	void testRetrieveBookById() throws Exception {
+		when(bookService.findBookById(1L)).thenReturn(BookObjectMother.buildBook());
+
+		mockMvc.perform(MockMvcRequestBuilders.get("/book/1").contentType(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk()).andExpect(jsonPath("$.id").isNotEmpty())
+				.andExpect(jsonPath("$.author").isNotEmpty()).andExpect(jsonPath("$.title").isNotEmpty())
+				.andExpect(jsonPath("$.author").isNotEmpty());
+	}
+
+	@Test
+	void testDeleteBookById() throws Exception {
+
+		mockMvc.perform(MockMvcRequestBuilders.delete("/book/1").contentType(MediaType.APPLICATION_JSON))
 				.andExpect(status().isOk());
+
+	}
+
+	@Test
+	void testFindBookShouldReturnHttpStatusCode404() throws Exception {
+		when(bookService.findBookById(1L)).thenThrow(new BookNotFoundException());
+
+		mockMvc.perform(MockMvcRequestBuilders.get("/book/1").contentType(MediaType.APPLICATION_JSON))
+				.andExpect(status().isNotFound());
 	}
 
 }

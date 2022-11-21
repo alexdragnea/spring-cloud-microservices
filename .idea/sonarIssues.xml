@@ -193,6 +193,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/book-service/src/test/java/net/dg/bookservice/service/validation/BookValidationServiceTest.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/checkstyle.xml">
           <value>
             <set />
@@ -549,6 +554,206 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/target/checkstyle-result.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spring-rest-weather-app/.github/workflows/build.yml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spring-rest-weather-app/.github/workflows/deploy.yml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spring-rest-weather-app/README.md">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spring-rest-weather-app/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spring-rest-weather-app/src/main/java/net/dg/springrestweather/model/Clouds.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spring-rest-weather-app/src/main/java/net/dg/springrestweather/model/Coord.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spring-rest-weather-app/src/main/java/net/dg/springrestweather/model/Main.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spring-rest-weather-app/src/main/java/net/dg/springrestweather/model/Sys.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spring-rest-weather-app/src/main/java/net/dg/springrestweather/model/Weather.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spring-rest-weather-app/src/main/java/net/dg/springrestweather/model/WeatherData.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spring-rest-weather-app/src/main/java/net/dg/springrestweather/model/Wind.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spring-rest-weather-app/src/main/java/net/dg/springrestweather/rest/OpenWeatherMapController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spring-rest-weather-app/src/main/java/net/dg/springrestweather/service/impl/OpenWeatherMapServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spring-rest-weather-app/src/test/java/net/dg/springrestweather/constants/TestConstants.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spring-rest-weather-app/src/test/java/net/dg/springrestweather/rest/OpenWeatherMapControllerTest.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spring-rest-weather-app/src/test/java/net/dg/springrestweather/utility/WeatherDataObjectMother.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spring-rest-weather-app/src/test/java/net/dg/springrestweather/utility/WeatherObjectMother.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spring-rest-weather-app/target/site/jacoco/index.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spring-rest-weather-app/target/site/jacoco/net.dg.springrestweather.model/Clouds.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spring-rest-weather-app/target/site/jacoco/net.dg.springrestweather.service.impl/index.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spring-rest-weather/.github/workflows/build.yml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spring-rest-weather/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spring-rest-weather/spring-rest-weather.iml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spring-rest-weather/src/main/java/net/dg/springrestweather/SpringRestWeatherApplication.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spring-rest-weather/src/main/java/net/dg/springrestweather/client/WeatherServiceClient.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spring-rest-weather/src/main/java/net/dg/springrestweather/config/WeatherAppConfig.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spring-rest-weather/src/main/java/net/dg/springrestweather/model/Clouds.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spring-rest-weather/src/main/java/net/dg/springrestweather/model/Coord.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spring-rest-weather/src/main/java/net/dg/springrestweather/model/Main.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spring-rest-weather/src/main/java/net/dg/springrestweather/model/Sys.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spring-rest-weather/src/main/java/net/dg/springrestweather/model/Weather.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spring-rest-weather/src/main/java/net/dg/springrestweather/model/WeatherData.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spring-rest-weather/src/main/java/net/dg/springrestweather/model/Wind.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spring-rest-weather/src/main/java/net/dg/springrestweather/rest/OpenWeatherApiController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spring-rest-weather/src/main/java/net/dg/springrestweather/rest/WeatherController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spring-rest-weather/src/main/java/net/dg/springrestweather/service/WeatherService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spring-rest-weather/src/main/java/net/dg/springrestweather/service/WeatherServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spring-rest-weather/src/main/java/net/dg/springrestweather/service/impl/WeatherService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spring-rest-weather/src/main/java/net/dg/springrestweather/service/impl/WeatherServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spring-rest-weather/src/main/resources/application.properties">
           <value>
             <set />
           </value>
