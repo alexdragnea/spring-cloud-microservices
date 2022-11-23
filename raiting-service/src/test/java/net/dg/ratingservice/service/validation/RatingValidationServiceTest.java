@@ -13,10 +13,10 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 class RatingValidationServiceTest {
 
 	@Autowired
-	private RatingValidationService ratingValidationService;
+	RatingValidationService ratingValidationService;
 
 	@Test
-	public void whenExceptionThrown_thenRuleIsApplied() {
+	void whenExceptionThrown_thenRuleIsApplied() {
 		assertThrows(ValidationException.class, () -> ratingValidationService.validate(new Rating(null, null, 0)));
 
 		assertThrows(ValidationException.class, () -> ratingValidationService.validate(new Rating(null, null, 10)));
