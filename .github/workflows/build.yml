@@ -26,8 +26,8 @@ jobs:
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
       #Run mvn clean install
-      - name: Run Tests
-        run: mvn clean install
+      - name: Run mvn clean install
+        run: mvn clean install -DskipTests
   #Test's job
   tests:
     #Depends on test's job
