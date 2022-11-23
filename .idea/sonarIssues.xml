@@ -498,7 +498,32 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/raiting-service/src/main/resources/application-test.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/raiting-service/src/main/resources/application.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/raiting-service/src/test/java/net/dg/ratingservice/constants/RatingObjectMother.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/raiting-service/src/test/java/net/dg/ratingservice/controller/RatingControllerTest.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/raiting-service/src/test/java/net/dg/ratingservice/service/validation/RatingValidationServiceTest.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/raiting-service/src/test/java/net/dg/ratingservice/wiremock/TestBookRestConsumerClient.java">
           <value>
             <set />
           </value>
@@ -578,6 +603,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../spring-rest-weather-app/src/main/java/net/dg/springrestweather/client/OpenWeatherMapClient.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../spring-rest-weather-app/src/main/java/net/dg/springrestweather/model/Clouds.java">
           <value>
             <set />
@@ -639,6 +669,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../spring-rest-weather-app/src/test/java/net/dg/springrestweather/utility/WeatherObjectMother.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../spring-rest-weather-app/src/test/java/net/dg/springrestweather/wiremock/feign/TestOpenWeaterMapClient.java">
           <value>
             <set />
           </value>
