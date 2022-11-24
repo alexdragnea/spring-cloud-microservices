@@ -10,7 +10,6 @@ COPY gateway/pom.xml gateway/pom.xml
 # you get the idea:
 # COPY moduleN/pom.xml moduleN/pom.xml
 
-COPY pom.xml .
 RUN mvn -B -e -C org.apache.maven.plugins:maven-dependency-plugin:3.1.2:go-offline
 
 # if you have modules that depends each other, you may use -DexcludeArtifactIds as follows
