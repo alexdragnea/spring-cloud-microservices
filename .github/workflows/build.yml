@@ -42,7 +42,7 @@ jobs:
   #Test's job
   tests:
     #Depends on build's job
-    needs: mvn_build
+#    needs: mvn_build
     name: Unit tests
     #Run on Ubuntu using the latest version
     runs-on: ubuntu-latest
