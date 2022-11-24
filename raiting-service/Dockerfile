@@ -3,7 +3,7 @@ FROM maven:3.6.3-jdk-11-slim AS build
 COPY src /home/raiting-service/src
 COPY pom.xml /home/raiting-service
 RUN cd -
-COPY ../pom.xml /home/
+COPY pom.xml /home/
 WORKDIR /home/
 RUN mvn -f /home/pom.xml clean package
 
