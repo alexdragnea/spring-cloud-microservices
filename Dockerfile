@@ -32,6 +32,8 @@ RUN mvn -B -e -o clean install -DskipTests=true
 # At this point, BUILDER stage should have your .jar or whatever in some path
 FROM openjdk:8-alpine
 WORKDIR /opt/app
+RUN addgroup -S spring && adduser -S spring -G spring
+USER spring:spring
 COPY --from=builder /opt/app/<path-to-target>/my-1.0.0.jar .
 EXPOSE 9560
 CMD [ "java", "-jar", "/opt/app/my-1.0.0.jar" ]
