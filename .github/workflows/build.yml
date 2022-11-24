@@ -12,9 +12,9 @@ jobs:
       - name: Change directory to raiting service
         run: cd raiting-service
       - name: Building Docker Image
-        run: docker-compose build -f /raiting-service/docker-compose.yml --force-recreate
+        run: docker-compose build -f /raiting-service/docker-compose.yml
       - name: Launching the app
-        run: docker-compose up -f /raiting-service/docker-compose.yml --detach --force-recreate
+        run: docker-compose up -f /raiting-service/docker-compose.yml
 
       - name: OWASP ZAP Baseline Scan
         uses: zaproxy/action-baseline@v0.7.0
