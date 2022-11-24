@@ -1,7 +1,7 @@
 version: '3'
 services:
-  api:
-    build: ./
-    container_name: multi-module-spring-docker
+  web:
+    container_name: rating-service
+    build: raiting-service
     ports:
-      - "8080:8080"
+      - "9009:9009"

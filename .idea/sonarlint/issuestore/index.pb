@@ -27,8 +27,6 @@ Lbook-service/src/main/java/net/dg/bookservice/controller/BookController.java,3
 Sraiting-service/src/main/java/net/dg/ratingservice/controller/RatingController.java,6\f\6f54d1a37f6ffd76af24fcd54c94f9e0d8954a9b
 G
 raiting-service/pom.xml,0\0\009a8b8ae98ef6922424edb2ab6cda608baaf566
-R
-"raiting-service/docker-compose.yml,9\d\9d75193ff0f8dd2ae4ab757d79c4b7b096635209
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
 L

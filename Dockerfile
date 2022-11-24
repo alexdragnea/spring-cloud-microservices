@@ -1,14 +1,14 @@
-FROM maven:3.5.2-jdk-8-alpine AS MAVEN_TOOL_CHAIN
-COPY pom.xml /tmp/
-COPY raiting-service /tmp/rating-service/
-COPY book-service /tmp/book-service/
-WORKDIR /tmp/
-RUN mvn clean install -Pdocker
+FROM maven:3.6.3-jdk-11-slim AS build
+
+COPY pom.xml /home/
+COPY raiting-service/src /home/app/src
+COPY raiting-service/pom.xml /home/app
+WORKDIR /home/
+RUN mvn -f /home/app/pom.xml clean package
 
 FROM adoptopenjdk/openjdk11:alpine-jre
 
-COPY --from=MAVEN_TOOL_CHAIN /tmp/api/target/multi-module-spring-docker.jar app.jar
-
-RUN sh -c 'touch /app.jar'
-
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
+RUN addgroup -S spring && adduser -S spring -G spring
+USER spring:spring
+COPY --from=build /home/app/target/rating-service-0.0.1-SNAPSHOT.jar rating-service-0.0.1-SNAPSHOT.jar
+ENTRYPOINT ["java","-jar","/rating-service-0.0.1-SNAPSHOT.jar"]
