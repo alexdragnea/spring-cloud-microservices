@@ -4,24 +4,6 @@ on:
     branches:
       - master
 jobs:
-  owasp:
-    name: OWASP ZAP SCANS
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v2
-      - name: Building Docker Image
-        run: docker-compose build
-      - name: Change directory to raiting service
-        run: cd raiting-service
-      - name: Launching the app
-        run: docker-compose up --detach
-
-      - name: OWASP ZAP Baseline Scan
-        uses: zaproxy/action-baseline@v0.7.0
-        with:
-          target: 'http://localhost:9009'
-          issue_title: OWASP Security Testing
   #Maven Build Job
   mvn_build:
     name: Build
