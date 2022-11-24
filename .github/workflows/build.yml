@@ -5,7 +5,7 @@ on:
 jobs:
   owasp_book:
     #Depends on build job
-    needs: mvn_build
+#    needs: mvn_build
     name: OWASP ZAP SCANS
     runs-on: ubuntu-latest
 
