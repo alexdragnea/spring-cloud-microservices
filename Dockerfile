@@ -23,7 +23,7 @@ WORKDIR /opt/app
 COPY --from=deps /root/.m2 /root/.m2
 COPY --from=deps /opt/app/ /opt/app
 COPY book-service/src /opt/app/book-service/src
-COPY rating-service/src /opt/app/rating-service/src
+COPY raiting-servicee/src /opt/app/raiting-service-service/src
 
 # use -o (--offline) if you didn't need to exclude artifacts.
 # if you have excluded artifacts, then remove -o flag
@@ -37,3 +37,9 @@ USER spring:spring
 COPY --from=builder /opt/app/<path-to-target>/my-1.0.0.jar .
 EXPOSE 9560
 CMD [ "java", "-jar", "/opt/app/my-1.0.0.jar" ]
+
+
+COPY src /home/app/src
+COPY pom.xml /home/app
+RUN mvn -f /home/app/pom.xml clean package
+/home/app/target/spring-rest-weather-0.0.1-SNAPSHOT.jar spring-rest-weather-0.0.1-SNAPSHOT.jar
