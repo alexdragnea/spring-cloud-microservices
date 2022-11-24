@@ -1,8 +1,7 @@
 FROM maven:3.6.3-jdk-11-slim AS build
 
 COPY pom.xml /home/
-COPY raiting-service/src /home/app/src
-COPY raiting-service/pom.xml /home/app
+COPY raiting-service /home/raiting-service
 WORKDIR /home/
 RUN mvn -f /home/app/pom.xml clean package
 
