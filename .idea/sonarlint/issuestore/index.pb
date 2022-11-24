@@ -27,8 +27,6 @@ Lbook-service/src/main/java/net/dg/bookservice/controller/BookController.java,3
 Sraiting-service/src/main/java/net/dg/ratingservice/controller/RatingController.java,6\f\6f54d1a37f6ffd76af24fcd54c94f9e0d8954a9b
 G
 raiting-service/pom.xml,0\0\009a8b8ae98ef6922424edb2ab6cda608baaf566
-7
-pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
 L
 .github/workflows/deploy.yml,f\1\f130ad0d1d16d0d70ec30d355f736ae3784b05cf
 D
