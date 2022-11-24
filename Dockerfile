@@ -3,7 +3,7 @@ FROM maven:3.6-alpine as DEPS
 
 WORKDIR /opt/app
 COPY book-service/pom.xml book-service/pom.xml
-COPY rating-service/pom.xml rating-service/pom.xml
+COPY raiting-service/pom.xml raiting-service/pom.xml
 
 # you get the idea:
 # COPY moduleN/pom.xml moduleN/pom.xml
@@ -23,7 +23,7 @@ WORKDIR /opt/app
 COPY --from=deps /root/.m2 /root/.m2
 COPY --from=deps /opt/app/ /opt/app
 COPY book-service/src /opt/app/book-service/src
-COPY raiting-servicee/src /opt/app/raiting-service-service/src
+COPY raiting-service/src /opt/app/raiting-service-service/src
 
 # use -o (--offline) if you didn't need to exclude artifacts.
 # if you have excluded artifacts, then remove -o flag
