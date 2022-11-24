@@ -44,10 +44,7 @@ public class ApiKeyFilter implements GatewayFilter, Ordered {
 
 	private boolean checkApikey(String routeId, String apikey) {
 
-		if (apikey.equals(AppConstant.API_KEY_VALUE))
-			return true;
-
-		return false;
+		return apikey.equals(AppConstant.API_KEY_VALUE);
 	}
 
 }

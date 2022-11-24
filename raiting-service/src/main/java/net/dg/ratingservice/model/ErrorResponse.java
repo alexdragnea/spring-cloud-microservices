@@ -11,10 +11,10 @@ public class ErrorResponse {
 	}
 
 	// General error message about nature of error
-	private String message;
+	private final String message;
 
 	// Specific errors in API request processing
-	private List<String> details;
+	private final List<String> details;
 
 	// Getter and setters
 

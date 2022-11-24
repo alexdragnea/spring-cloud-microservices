@@ -11,9 +11,5 @@ H
 gateway/pom.xml,4\b\4b316bc60d1cfae51045f6fc8e58a8ae31f03ff3
 m
 =gateway/src/main/java/net/dg/gateway/filter/ApiKeyFilter.java,1\c\1ca6f4e345b69eb9dc4fa8c96140ba14ce0e757f
-|
-Lbook-service/src/main/java/net/dg/bookservice/controller/BookController.java,3\2\3276b54d8cc4b88b8c1a9bce180dbf6d62ffd987
 v
 Fbook-service/src/main/java/net/dg/bookservice/service/BookService.java,c\b\cb9a20b48ffe6d822c7ef61419333808c7819684
-‚
-Rbook-service/src/main/java/net/dg/bookservice/exceptions/BookControllerAdvice.java,d\8\d89b67b6e3f6ac119e0acb3b7d1a9216741f536c
