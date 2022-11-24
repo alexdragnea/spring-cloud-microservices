@@ -55,7 +55,7 @@ class RatingControllerTest {
 		when(ratingService.findAllRatings()).thenReturn(ratings);
 
 		mockMvc.perform(MockMvcRequestBuilders.get("/rating").contentType(MediaType.APPLICATION_JSON))
-				.andExpect(status().isOk()).andExpect(jsonPath("$[0].id").isNotEmpty())
+				.andExpect(status().isFound()).andExpect(jsonPath("$[0].id").isNotEmpty())
 				.andExpect(jsonPath("$[0].bookId").isNotEmpty()).andExpect(jsonPath("$[0].stars").isNotEmpty())
 				.andExpect(jsonPath("$[1].id").isNotEmpty()).andExpect(jsonPath("$[1].bookId").isNotEmpty())
 				.andExpect(jsonPath("$[1].stars").isNotEmpty());
