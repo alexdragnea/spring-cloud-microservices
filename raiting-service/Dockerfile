@@ -1,6 +1,7 @@
 FROM maven:3.6.3-jdk-11-slim AS build
-COPY ./raiting-service/src /home/app/src
-COPY ./raiting-service/pom.xml /home/app
+cd raiting-service
+COPY src /home/app/src
+COPY pom.xml /home/app
 RUN mvn -f /home/app/pom.xml clean package
 
 FROM adoptopenjdk/openjdk11:alpine-jre
