@@ -9,8 +9,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Change directory to raiting service
-        run: cd raiting-service
       - name: Building Docker Image
         run: docker-compose -f raiting-service/docker-compose.yml build
       - name: Launching the app
