@@ -1,6 +1,6 @@
 FROM maven:3.5.2-jdk-8-alpine AS MAVEN_TOOL_CHAIN
 COPY pom.xml /tmp/
-COPY rating-service /tmp/rating-service/
+COPY raiting-service /tmp/rating-service/
 COPY book-service /tmp/book-service/
 WORKDIR /tmp/
 RUN mvn clean install -Pdocker
