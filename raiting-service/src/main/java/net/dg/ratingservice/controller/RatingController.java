@@ -14,7 +14,6 @@ import net.dg.ratingservice.exceptions.BookNotFoundException;
 import net.dg.ratingservice.exceptions.RatingNotFoundException;
 import net.dg.ratingservice.service.RatingService;
 import net.dg.ratingservice.service.validation.RatingValidationService;
-import org.apache.http.protocol.HTTP;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
