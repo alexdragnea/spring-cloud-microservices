@@ -1,6 +1,6 @@
 FROM maven:3.6.3-jdk-11-slim AS build
 
-COPY ..pom.xml /home/
+COPY /spring-cloud-project/pom.xml /home/
 COPY pom.xml /home/raiting-service
 COPY src /home/raiting-service/src
 WORKDIR /home/
