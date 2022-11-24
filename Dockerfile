@@ -37,9 +37,3 @@ USER spring:spring
 COPY --from=builder /opt/app/<path-to-target>/my-1.0.0.jar .
 EXPOSE 9560
 CMD [ "java", "-jar", "/opt/app/my-1.0.0.jar" ]
-
-
-COPY src /home/app/src
-COPY pom.xml /home/app
-RUN mvn -f /home/app/pom.xml clean package
-/home/app/target/spring-rest-weather-0.0.1-SNAPSHOT.jar spring-rest-weather-0.0.1-SNAPSHOT.jar
