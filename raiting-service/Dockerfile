@@ -5,7 +5,7 @@ COPY pom.xml /home/raiting-service
 RUN cd -
 COPY pom.xml /home/
 WORKDIR /home/
-RUN mvn -f /home/pom.xml clean package
+RUN mvn clean install -Pdocker
 
 FROM adoptopenjdk/openjdk11:alpine-jre
 
