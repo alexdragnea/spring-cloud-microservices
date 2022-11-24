@@ -2,6 +2,6 @@ version: '3'
 services:
   web:
     container_name: rating-service
-    build: raiting-service
+    build: ""
     ports:
       - "9009:9009"
