@@ -1,7 +1,7 @@
 FROM maven:3.6.3-jdk-11-slim AS build
 
 COPY pom.xml /home/raiting-service
-COPY src /home/raiting-service/src
+COPY src /home/raiting-service/src/
 RUN cd -
 COPY ../pom.xml /home/
 WORKDIR /home/
