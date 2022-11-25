@@ -223,6 +223,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/discovery-service/Dockerfile">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/discovery-service/pom.xml">
           <value>
             <set />
@@ -238,7 +243,17 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/discovery-service/src/main/resources/application.yml">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/docker-compose.yml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/gateway/Dockerfile">
           <value>
             <set />
           </value>
@@ -314,6 +329,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/gateway/src/main/resources/application.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/gateway/src/main/resources/application.yml">
           <value>
             <set />
           </value>
@@ -554,6 +574,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/raiting-service/src/test/java/net/dg/ratingservice/wiremock/TestBookRestConsumerClient.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/rating-service/Dockerfile">
           <value>
             <set />
           </value>

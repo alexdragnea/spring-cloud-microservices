@@ -20,7 +20,6 @@
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
         <spring-cloud.version>2021.0.4</spring-cloud.version>
     </properties>
 
@@ -72,13 +71,18 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
         </plugins>
     </build>
 
 
+
     <modules>
         <module>discovery-service</module>
-        <module>raiting-service</module>
+        <module>rating-service</module>
         <module>book-service</module>
         <module>gateway</module>
     </modules>
