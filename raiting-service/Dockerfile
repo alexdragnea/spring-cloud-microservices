@@ -18,11 +18,9 @@
 FROM maven:3.6-alpine as DEPS
 
 WORKDIR /opt/app
-COPY module1/pom.xml module1/pom.xml
-COPY module2/pom.xml module2/pom.xml
+COPY raiting-service/pom.xml raiting-service/pom.xml
+COPY book-service/pom.xml book-service/pom.xml
 
-# you get the idea:
-# COPY moduleN/pom.xml moduleN/pom.xml
 
 COPY pom.xml .
 RUN mvn -B -e -C org.apache.maven.plugins:maven-dependency-plugin:3.1.2:go-offline
