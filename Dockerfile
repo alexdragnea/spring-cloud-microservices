@@ -18,6 +18,7 @@
 FROM maven:3.6-alpine as DEPS
 
 WORKDIR /opt/app
+COPY pom.xml app
 COPY raiting-service/pom.xml raiting-service/pom.xml
 COPY book-service/pom.xml book-service/pom.xml
 
