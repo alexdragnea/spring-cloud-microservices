@@ -3,6 +3,5 @@ services:
   web:
     container_name: rating-service
     build: ""
-      dockerfile: /rating-service/Dockerfile
     ports:
       - "9009:9009"
