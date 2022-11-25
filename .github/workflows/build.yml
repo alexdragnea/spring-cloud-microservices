@@ -10,9 +10,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Building Docker Image
-        run: docker-compose build
+        run: docker-compose -f raiting-service/docker-compose.yml build
       - name: Launching the app
-        run: docker-compose up -d
+        run: docker-compose -f raiting-service/docker-compose.yml up -d
 
       - name: OWASP ZAP Baseline Scan
         uses: zaproxy/action-baseline@v0.7.0
