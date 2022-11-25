@@ -2,6 +2,9 @@ FROM maven:3.5.2-jdk-8-alpine AS MAVEN_TOOL_CHAIN
 COPY pom.xml /tmp/
 COPY raiting-service /tmp/raiting-service/
 COPY book-service /tmp/book-service/
+COPY gateway /tmp/gateway/
+COPY discovery-service /tmp/discovery-service/
+
 WORKDIR /tmp/
 RUN mvn clean install -Pdocker
 
