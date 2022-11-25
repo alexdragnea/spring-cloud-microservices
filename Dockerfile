@@ -22,7 +22,7 @@ COPY raiting-service/pom.xml raiting-service/pom.xml
 COPY book-service/pom.xml book-service/pom.xml
 
 
-COPY pom.xml .
+COPY raiting-service/pom.xml .
 RUN mvn -B -e -C org.apache.maven.plugins:maven-dependency-plugin:3.1.2:go-offline
 
 # if you have modules that depends each other, you may use -DexcludeArtifactIds as follows
