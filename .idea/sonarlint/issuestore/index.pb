@@ -25,8 +25,6 @@ fraiting-service/src/test/java/net/dg/ratingservice/service/validation/RatingVal
 Lbook-service/src/main/java/net/dg/bookservice/controller/BookController.java,3\2\3276b54d8cc4b88b8c1a9bce180dbf6d62ffd987
 ƒ
 Sraiting-service/src/main/java/net/dg/ratingservice/controller/RatingController.java,6\f\6f54d1a37f6ffd76af24fcd54c94f9e0d8954a9b
-G
-raiting-service/pom.xml,0\0\009a8b8ae98ef6922424edb2ab6cda608baaf566
 L
 .github/workflows/deploy.yml,f\1\f130ad0d1d16d0d70ec30d355f736ae3784b05cf
 D
