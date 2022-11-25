@@ -5,10 +5,11 @@ on:
 jobs:
   owasp:
     name: OWASP ZAP SCANS
-    runs-on: ubuntu-latest
-
+    runs-on: ubuntu-latestgi
     steps:
       - uses: actions/checkout@v2
+      - name: Package
+        run: mvn clean package
       - name: Building Docker Image
         run: docker-compose build
       - name: Launching the app

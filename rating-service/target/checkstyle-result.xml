@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="9.3">
+<file name="C:\Users\adragnea\IdeaProjects\spring-cloud-project\rating-service\src\main\java\net\dg\ratingservice\config\AppConfig.java">
+</file>
+<file name="C:\Users\adragnea\IdeaProjects\spring-cloud-project\rating-service\src\main\java\net\dg\ratingservice\constants\ServiceConstants.java">
+</file>
+<file name="C:\Users\adragnea\IdeaProjects\spring-cloud-project\rating-service\src\main\java\net\dg\ratingservice\controller\RatingController.java">
+</file>
+<file name="C:\Users\adragnea\IdeaProjects\spring-cloud-project\rating-service\src\main\java\net\dg\ratingservice\dto\Book.java">
+</file>
+<file name="C:\Users\adragnea\IdeaProjects\spring-cloud-project\rating-service\src\main\java\net\dg\ratingservice\dto\ResponseTemplate.java">
+</file>
+<file name="C:\Users\adragnea\IdeaProjects\spring-cloud-project\rating-service\src\main\java\net\dg\ratingservice\entity\Rating.java">
+</file>
+<file name="C:\Users\adragnea\IdeaProjects\spring-cloud-project\rating-service\src\main\java\net\dg\ratingservice\exceptions\BookNotFoundException.java">
+</file>
+<file name="C:\Users\adragnea\IdeaProjects\spring-cloud-project\rating-service\src\main\java\net\dg\ratingservice\exceptions\RatingControllerAdvice.java">
+</file>
+<file name="C:\Users\adragnea\IdeaProjects\spring-cloud-project\rating-service\src\main\java\net\dg\ratingservice\exceptions\RatingNotFoundException.java">
+</file>
+<file name="C:\Users\adragnea\IdeaProjects\spring-cloud-project\rating-service\src\main\java\net\dg\ratingservice\feign\consumer\BookRestConsumer.java">
+</file>
+<file name="C:\Users\adragnea\IdeaProjects\spring-cloud-project\rating-service\src\main\java\net\dg\ratingservice\feign\errordecoder\FeignErrorDecoder.java">
+</file>
+<file name="C:\Users\adragnea\IdeaProjects\spring-cloud-project\rating-service\src\main\java\net\dg\ratingservice\feign\retryer\CustomRetryer.java">
+</file>
+<file name="C:\Users\adragnea\IdeaProjects\spring-cloud-project\rating-service\src\main\java\net\dg\ratingservice\model\ErrorResponse.java">
+</file>
+<file name="C:\Users\adragnea\IdeaProjects\spring-cloud-project\rating-service\src\main\java\net\dg\ratingservice\RatingServiceApplication.java">
+</file>
+<file name="C:\Users\adragnea\IdeaProjects\spring-cloud-project\rating-service\src\main\java\net\dg\ratingservice\repository\RatingRepository.java">
+</file>
+<file name="C:\Users\adragnea\IdeaProjects\spring-cloud-project\rating-service\src\main\java\net\dg\ratingservice\service\impl\RatingServiceImpl.java">
+</file>
+<file name="C:\Users\adragnea\IdeaProjects\spring-cloud-project\rating-service\src\main\java\net\dg\ratingservice\service\RatingService.java">
+</file>
+<file name="C:\Users\adragnea\IdeaProjects\spring-cloud-project\rating-service\src\main\java\net\dg\ratingservice\service\validation\RatingValidationService.java">
+</file>
+<file name="C:\Users\adragnea\IdeaProjects\spring-cloud-project\rating-service\src\test\java\net\dg\ratingservice\constants\RatingObjectMother.java">
+</file>
+<file name="C:\Users\adragnea\IdeaProjects\spring-cloud-project\rating-service\src\test\java\net\dg\ratingservice\controller\RatingControllerTest.java">
+</file>
+<file name="C:\Users\adragnea\IdeaProjects\spring-cloud-project\rating-service\src\test\java\net\dg\ratingservice\RatingServiceApplicationTests.java">
+</file>
+<file name="C:\Users\adragnea\IdeaProjects\spring-cloud-project\rating-service\src\test\java\net\dg\ratingservice\service\validation\RatingValidationServiceTest.java">
+</file>
+<file name="C:\Users\adragnea\IdeaProjects\spring-cloud-project\rating-service\src\main\resources\application.properties">
+</file>
+</checkstyle>

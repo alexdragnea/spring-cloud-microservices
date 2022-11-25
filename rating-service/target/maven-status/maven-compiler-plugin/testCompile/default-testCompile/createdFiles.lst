@@ -1,0 +1,4 @@
+net\dg\ratingservice\controller\RatingControllerTest.class
+net\dg\ratingservice\RatingServiceApplicationTests.class
+net\dg\ratingservice\constants\RatingObjectMother.class
+net\dg\ratingservice\service\validation\RatingValidationServiceTest.class

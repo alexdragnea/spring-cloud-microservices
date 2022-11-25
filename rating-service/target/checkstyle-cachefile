@@ -1,0 +1,25 @@
+#Fri Nov 25 15:53:38 EET 2022
+C\:\\Users\\adragnea\\IdeaProjects\\spring-cloud-project\\rating-service\\src\\main\\java\\net\\dg\\ratingservice\\exceptions\\BookNotFoundException.java=1669062692127
+C\:\\Users\\adragnea\\IdeaProjects\\spring-cloud-project\\rating-service\\src\\test\\java\\net\\dg\\ratingservice\\constants\\RatingObjectMother.java=1669215452359
+C\:\\Users\\adragnea\\IdeaProjects\\spring-cloud-project\\rating-service\\src\\main\\java\\net\\dg\\ratingservice\\service\\RatingService.java=1669062692137
+C\:\\Users\\adragnea\\IdeaProjects\\spring-cloud-project\\rating-service\\src\\main\\java\\net\\dg\\ratingservice\\exceptions\\RatingNotFoundException.java=1669062692129
+C\:\\Users\\adragnea\\IdeaProjects\\spring-cloud-project\\rating-service\\src\\test\\java\\net\\dg\\ratingservice\\service\\validation\\RatingValidationServiceTest.java=1669291005480
+C\:\\Users\\adragnea\\IdeaProjects\\spring-cloud-project\\rating-service\\src\\main\\java\\net\\dg\\ratingservice\\dto\\ResponseTemplate.java=1669062692125
+C\:\\Users\\adragnea\\IdeaProjects\\spring-cloud-project\\rating-service\\src\\main\\resources\\application.properties=1669375555187
+C\:\\Users\\adragnea\\IdeaProjects\\spring-cloud-project\\rating-service\\src\\main\\java\\net\\dg\\ratingservice\\entity\\Rating.java=1669062692126
+C\:\\Users\\adragnea\\IdeaProjects\\spring-cloud-project\\rating-service\\src\\test\\java\\net\\dg\\ratingservice\\controller\\RatingControllerTest.java=1669291005479
+configuration*?=4AEB30CD42057C82FAE9277AD74E2E108E162D39
+C\:\\Users\\adragnea\\IdeaProjects\\spring-cloud-project\\rating-service\\src\\main\\java\\net\\dg\\ratingservice\\RatingServiceApplication.java=1669291005474
+C\:\\Users\\adragnea\\IdeaProjects\\spring-cloud-project\\rating-service\\src\\main\\java\\net\\dg\\ratingservice\\dto\\Book.java=1669062692124
+C\:\\Users\\adragnea\\IdeaProjects\\spring-cloud-project\\rating-service\\src\\main\\java\\net\\dg\\ratingservice\\model\\ErrorResponse.java=1669291005476
+C\:\\Users\\adragnea\\IdeaProjects\\spring-cloud-project\\rating-service\\src\\main\\java\\net\\dg\\ratingservice\\service\\impl\\RatingServiceImpl.java=1669062692139
+C\:\\Users\\adragnea\\IdeaProjects\\spring-cloud-project\\rating-service\\src\\main\\java\\net\\dg\\ratingservice\\config\\AppConfig.java=1669062692121
+C\:\\Users\\adragnea\\IdeaProjects\\spring-cloud-project\\rating-service\\src\\main\\java\\net\\dg\\ratingservice\\controller\\RatingController.java=1669291005475
+C\:\\Users\\adragnea\\IdeaProjects\\spring-cloud-project\\rating-service\\src\\test\\java\\net\\dg\\ratingservice\\RatingServiceApplicationTests.java=1669062692142
+C\:\\Users\\adragnea\\IdeaProjects\\spring-cloud-project\\rating-service\\src\\main\\java\\net\\dg\\ratingservice\\feign\\consumer\\BookRestConsumer.java=1669062692130
+C\:\\Users\\adragnea\\IdeaProjects\\spring-cloud-project\\rating-service\\src\\main\\java\\net\\dg\\ratingservice\\repository\\RatingRepository.java=1669062692135
+C\:\\Users\\adragnea\\IdeaProjects\\spring-cloud-project\\rating-service\\src\\main\\java\\net\\dg\\ratingservice\\feign\\retryer\\CustomRetryer.java=1669062692132
+C\:\\Users\\adragnea\\IdeaProjects\\spring-cloud-project\\rating-service\\src\\main\\java\\net\\dg\\ratingservice\\constants\\ServiceConstants.java=1669062692122
+C\:\\Users\\adragnea\\IdeaProjects\\spring-cloud-project\\rating-service\\src\\main\\java\\net\\dg\\ratingservice\\exceptions\\RatingControllerAdvice.java=1669062692128
+C\:\\Users\\adragnea\\IdeaProjects\\spring-cloud-project\\rating-service\\src\\main\\java\\net\\dg\\ratingservice\\feign\\errordecoder\\FeignErrorDecoder.java=1669062692131
+C\:\\Users\\adragnea\\IdeaProjects\\spring-cloud-project\\rating-service\\src\\main\\java\\net\\dg\\ratingservice\\service\\validation\\RatingValidationService.java=1669062692140
