@@ -3,72 +3,91 @@ on:
   pull_request:
     types: [ opened, synchronize, reopened ]
 jobs:
-  owasp:
-    name: OWASP ZAP SCANS
+  Maven Build Job
+  mvn_build:
+    name: Build
+    #Run on Ubuntu using the latest version
     runs-on: ubuntu-latest
-
+    #Job's steps
     steps:
-      - uses: actions/checkout@v2
-      - name: Package
-        run: mvn clean package
-      - name: Building Docker Image
-        run: docker-compose build discovery-service
-      - name: Launching the app
-        run: docker-compose up -d discovery-service
-
-      - name: OWASP ZAP Baseline Scan
-        uses: zaproxy/action-baseline@v0.7.0
+      #Check-out your repository under $GITHUB_WORKSPACE, so your workflow can access it
+      - uses: actions/checkout@v1
+      #Set up JDK 11
+      - name: Set up JDK
+        uses: actions/setup-java@v1
         with:
-          target: 'http://localhost:9009'
-          issue_title: OWASP Security Testing
-  #Maven Build Job
-#  mvn_build:
-#    name: Build
-#    #Run on Ubuntu using the latest version
-#    runs-on: ubuntu-latest
-#    #Job's steps
-#    steps:
-#      #Check-out your repository under $GITHUB_WORKSPACE, so your workflow can access it
-#      - uses: actions/checkout@v1
-#      #Set up JDK 11
-#      - name: Set up JDK
-#        uses: actions/setup-java@v1
-#        with:
-#          java-version: '11'
-#      #Set up Maven cache
-#      - name: Cache Maven packages
-#        #This action allows caching dependencies and build outputs to improve workflow execution time.
-#        uses: actions/cache@v1
-#        with:
-#          path: ~/.m2
-#          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-#          restore-keys: ${{ runner.os }}-m2
-#      #Run mvn clean install
-#      - name: Run Build without tests
-#        run: mvn clean install -DskipTests
-#  tests:
-#    #Depends on build's job
-#    needs: mvn_build
-#    name: Unit tests
-#    #Run on Ubuntu using the latest version
-#    runs-on: ubuntu-latest
-#    #Job's steps
-#    steps:
-#      #Check-out your repository under $GITHUB_WORKSPACE, so your workflow can access it
-#      - uses: actions/checkout@v1
-#      #Set up JDK 11
-#      - name: Set up JDK
-#        uses: actions/setup-java@v1
-#        with:
-#          java-version: '11'
-#      #Set up Maven cache
-#      - name: Cache Maven packages
-#        #This action allows caching dependencies and build outputs to improve workflow execution time.
-#        uses: actions/cache@v1
-#        with:
-#          path: ~/.m2
-#          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-#          restore-keys: ${{ runner.os }}-m2
-#      #Run Tests
-#      - name: Run Tests
-#        run: mvn -B test
+          java-version: '11'
+      #Set up Maven cache
+      - name: Cache Maven packages
+        #This action allows caching dependencies and build outputs to improve workflow execution time.
+        uses: actions/cache@v1
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2
+      #Run mvn clean install
+      - name: Run Build without tests
+        run: mvn clean install -DskipTests
+  tests:
+    #Depends on build's job
+    needs: mvn_build
+    name: Unit tests
+    #Run on Ubuntu using the latest version
+    runs-on: ubuntu-latest
+    #Job's steps
+    steps:
+      #Check-out your repository under $GITHUB_WORKSPACE, so your workflow can access it
+      - uses: actions/checkout@v1
+      #Set up JDK 11
+      - name: Set up JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: '11'
+      #Set up Maven cache
+      - name: Cache Maven packages
+        #This action allows caching dependencies and build outputs to improve workflow execution time.
+        uses: actions/cache@v1
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2
+      #Run Tests
+      - name: Run Tests
+        run: mvn -B test
+    owasp:
+      #Depends on tests's job
+      needs: tests
+      name: OWASP ZAP SCANS Book-Service
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+        - name: Package
+          run: mvn clean package
+        - name: Building Docker Service Images
+          run: docker-compose build
+        - name: Run all services
+          run: docker-compose up -d
+
+        - name: OWASP ZAP Baseline Scan
+          uses: zaproxy/action-baseline@v0.7.0
+          with:
+            target: 'http://localhost:9560'
+            issue_title: OWASP Security Testing BookService
+
+        - name: OWASP ZAP Baseline Scan
+          uses: zaproxy/action-baseline@v0.7.0
+          with:
+            target: 'http://localhost:9009'
+            issue_title: OWASP Security Testing RatingService
+
+        - name: OWASP ZAP Baseline Scan
+          uses: zaproxy/action-baseline@v0.7.0
+          with:
+            target: 'http://localhost:8761'
+            issue_title: OWASP Security Testing Discovery Service
+
+        - name: OWASP ZAP Baseline Scan
+          uses: zaproxy/action-baseline@v0.7.0
+          with:
+            target: 'http://localhost:8081'
+            issue_title: OWASP Security Testing Gateway

@@ -1,86 +1,3 @@
-#version: '3.9'
-#
-## Define services
-#services:
-#
-#  db:
-#   image: 'postgres:13.1-alpine'
-#   container_name: db
-#   ports:
-#     - "5432:5432"
-#   environment:
-#     - POSTGRES_USER=compose-postgres
-#     - POSTGRES_PASSWORD=compose-postgres
-#   networks:
-#     - backend
-#
-#
-#  # discovery-service
-#  discovery-service:
-#    image: spring-cloud-project/spring-cloud-project-discovery-service
-#    ports:
-#      - "8761:8888"
-#    networks:
-#      - backend
-#    environment:
-#      eureka.instance.hostname: eureka-server
-#      eureka.client.serviceUrl.defaultZone: http://eureka-server:8761/eureka/
-#
-#
-#  # gateway-service
-#  gateway-service:
-#    image: spring-cloud-project/spring-cloud-project-gateway
-#    ports:
-#      - "8081:8081"
-#    networks:
-#      - backend
-#    depends_on:
-#      - discovery-service
-#    environment:
-#      server.port: 8081
-#      eureka.client.serviceUrl.defaultZone: http://eureka-server:8761/eureka/
-#
-#  # book-service
-#  book-service:
-#    image: spring-cloud-project/spring-cloud-project-book-service
-#    ports:
-#      - "9560:9560"
-#    depends_on:
-#      - db
-#      - discovery-service
-#    environment:
-#      - server.port=9560
-#      - eureka.client.serviceUrl.defaultZone=http://eureka-server:8761/eureka/
-#      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/compose-postgres
-#      - SPRING_DATASOURCE_USERNAME=compose-postgres
-#      - SPRING_DATASOURCE_PASSWORD=compose-postgres
-#      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
-#    networks:
-#      - backend
-#
-#  # rating-service
-#  rating-service:
-#    image: spring-cloud-project/spring-cloud-project-rating-service
-#    ports:
-#      - "9009:9009"
-#    depends_on:
-#      - db
-#      - discovery-service
-#    environment:
-#      - server.port=9009
-#      - eureka.client.serviceUrl.defaultZone=http://eureka-server:8761/eureka/
-#      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/compose-postgres
-#      - SPRING_DATASOURCE_USERNAME=compose-postgres
-#      - SPRING_DATASOURCE_PASSWORD=compose-postgres
-#      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
-#    networks:
-#      - backend
-#
-## Networks to be created to facilitate communication between containers
-#networks:
-#  backend:
-
-
 version: '3.7'
 services:
 
@@ -93,7 +10,7 @@ services:
       - POSTGRES_USER=compose-postgres
       - POSTGRES_PASSWORD=compose-postgres
     networks:
-       - backend
+      - backend
 
 
   discovery-service:
@@ -102,6 +19,8 @@ services:
       - "8761:8761"
     networks:
       - backend
+    environment:
+      - server.port=8761
 
   gateway:
     build: ./gateway
@@ -109,10 +28,11 @@ services:
       - "8081:8081"
     depends_on:
       - discovery-service
-    environment:
-      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://localhost:8761/eureka/
     networks:
-     - backend
+      - backend
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://discovery-service:8761/eureka/
+
 
   # book-service
   book-service:
@@ -124,7 +44,7 @@ services:
       - discovery-service
     environment:
       - server.port=9560
-      - eureka.client.serviceUrl.defaultZone=http://eureka-server:8761/eureka/
+      - eureka.client.serviceUrl.defaultZone=http://discovery-service:8761/eureka/
       - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/compose-postgres
       - SPRING_DATASOURCE_USERNAME=compose-postgres
       - SPRING_DATASOURCE_PASSWORD=compose-postgres
@@ -142,7 +62,7 @@ services:
       - discovery-service
     environment:
       - server.port=9009
-      - eureka.client.serviceUrl.defaultZone=http://localhost:8761/eureka/
+      - eureka.client.serviceUrl.defaultZone=http://discovery-service:8761/eureka/
       - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/compose-postgres
       - SPRING_DATASOURCE_USERNAME=compose-postgres
       - SPRING_DATASOURCE_PASSWORD=compose-postgres
