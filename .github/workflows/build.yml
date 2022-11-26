@@ -58,7 +58,7 @@ jobs:
   owasp:
     #Depends on tests's job
     needs: tests
-    name: OWASP ZAP SCANS Book-Service
+    name: OWASP ZAP SCANS All Services
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
