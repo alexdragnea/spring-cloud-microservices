@@ -1,11 +1,0 @@
-
-Y
-java:S2259"CA "NullPointerException" could be thrown; "route" is nullable here.(æÅáÙ
-Q
-java:S1854";Remove this useless assignment to local variable "builder".(³æ•è
-B
-java:S1481",Remove this unused "builder" local variable.(³æ•è
-K
-java:S1172-".Remove this unused method parameter "routeId".(º˜”À8¿¬¥µÇ0
-c
-java:S1126/"AReplace this if-then-else statement by a single return statement.(·‰ŸÍùÿÿÿÿ8¿¬¥µÇ0
