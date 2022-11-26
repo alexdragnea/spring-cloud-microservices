@@ -12,9 +12,9 @@ jobs:
       - name: Package
         run: mvn clean package
       - name: Building Docker Image
-        run: docker-compose build
+        run: docker-compose build discovery-service
       - name: Launching the app
-        run: docker-compose up -d
+        run: docker-compose up -d discovery-service
 
       - name: OWASP ZAP Baseline Scan
         uses: zaproxy/action-baseline@v0.7.0

@@ -14,7 +14,6 @@
     <description>book-service</description>
     <properties>
         <java.version>11</java.version>
-        <spring-boot.build-image.imageName>spring-cloud-project/${parent.artifactId}-${project.artifactId}</spring-boot.build-image.imageName>
     </properties>
     <dependencies>
         <dependency>

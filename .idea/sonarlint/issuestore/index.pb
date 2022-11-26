@@ -11,3 +11,5 @@ v
 Fbook-service/src/main/java/net/dg/bookservice/service/BookService.java,c\b\cb9a20b48ffe6d822c7ef61419333808c7819684
 @
 gateway/mvnw.cmd,2\b\2b83d90c1fa7d29755ba2aa43a61215a9bcc60c7
+D
+book-service/pom.xml,e\6\e644ef49641e7b9b6b80b6181b8f9b17771bda26
