@@ -69,6 +69,11 @@ jobs:
       - name: Run all services
         run: docker-compose up -d
 
+      - name: Sleep for 60 seconds
+        uses: jakejarvis/wait-action@master
+        with:
+          time: '60s'
+
       - name: OWASP ZAP Baseline Scan
         uses: zaproxy/action-baseline@v0.7.0
         with:

@@ -9,16 +9,12 @@ services:
     environment:
       - POSTGRES_USER=compose-postgres
       - POSTGRES_PASSWORD=compose-postgres
-    networks:
-      - backend
 
 
   discovery-service:
     build: ./discovery-service
     ports:
       - "8761:8761"
-    networks:
-      - backend
     environment:
       - server.port=8761
 
@@ -28,8 +24,6 @@ services:
       - "8081:8081"
     depends_on:
       - discovery-service
-    networks:
-      - backend
     environment:
       - eureka.client.serviceUrl.defaultZone=http://discovery-service:8761/eureka/
 
@@ -49,8 +43,6 @@ services:
       - SPRING_DATASOURCE_USERNAME=compose-postgres
       - SPRING_DATASOURCE_PASSWORD=compose-postgres
       - SPRING_JPA_HIBERNATE_DDL_AUTO=update
-    networks:
-      - backend
 
   # rating-service
   rating-service:
@@ -67,9 +59,3 @@ services:
       - SPRING_DATASOURCE_USERNAME=compose-postgres
       - SPRING_DATASOURCE_PASSWORD=compose-postgres
       - SPRING_JPA_HIBERNATE_DDL_AUTO=update
-    networks:
-      - backend
-
-
-networks:
-  backend:
