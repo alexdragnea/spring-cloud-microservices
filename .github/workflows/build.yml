@@ -3,7 +3,7 @@ on:
   pull_request:
     types: [ opened, synchronize, reopened ]
 jobs:
-  Maven Build Job
+  #Maven Build Job
   mvn_build:
     name: Build
     #Run on Ubuntu using the latest version
@@ -28,6 +28,7 @@ jobs:
       #Run mvn clean install
       - name: Run Build without tests
         run: mvn clean install -DskipTests
+  #Run mvn tests
   tests:
     #Depends on build's job
     needs: mvn_build
