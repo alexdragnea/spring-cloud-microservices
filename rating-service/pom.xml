@@ -39,6 +39,16 @@
             <artifactId>springdoc-openapi-ui</artifactId>
             <version>1.5.12</version>
         </dependency>
+        <dependency>
+            <groupId>com.tngtech.archunit</groupId>
+            <artifactId>archunit</artifactId>
+            <version>0.14.1</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

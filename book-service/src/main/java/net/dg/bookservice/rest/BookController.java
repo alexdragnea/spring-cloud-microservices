@@ -1,4 +1,4 @@
-package net.dg.bookservice.controller;
+package net.dg.bookservice.rest;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;

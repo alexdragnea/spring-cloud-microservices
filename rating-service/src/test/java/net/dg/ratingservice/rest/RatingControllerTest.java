@@ -1,4 +1,4 @@
-package net.dg.ratingservice.controller;
+package net.dg.ratingservice.rest;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import net.dg.ratingservice.constants.RatingObjectMother;
