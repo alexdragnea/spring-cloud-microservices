@@ -1,4 +1,4 @@
-package net.dg.bookservice.controller;
+package net.dg.bookservice.rest;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import net.dg.bookservice.constants.BookObjectMother;
