@@ -21,7 +21,7 @@ class ArchitecturalTests {
 	private JavaClasses importedClasses;
 
 	@BeforeEach
-	public void setup() {
+	void setup() {
 		importedClasses = new ClassFileImporter().withImportOption(ImportOption.Predefined.DO_NOT_INCLUDE_TESTS)
 				.importPackages(TestConstants.BASE_PACKAGE);
 	}
