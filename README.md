@@ -208,31 +208,6 @@ Since we are using spring cloud gateway, we need also dependency for reactive ap
 </dependency>
 ```
 
-The load balancing between microservices is done by dynamic routing configuration as folows:
-```
-@Bean
-public RouteLocator raitingRoute(RouteLocatorBuilder builder) {
-    return builder.routes()
-            .route("rating-service", r -> r.path("/rating/**").filters(f -> f.filter(new ApiKeyFilter()))// static
-                    .uri("lb://RATING-SERVICE"))
-            .build();
-}
-
-@Bean
-public RouteLocator bookRoute(RouteLocatorBuilder builder) {
-    return builder.routes().route("book-service", r -> r.path("/book/**").filters(f -> f.filter(new ApiKeyFilter()))// static
-            .uri("lb://BOOK-SERVICE")) // static
-            .build();
-}
-```
-
-The gateway is secured and calls cannot be made without the api key on the header.
-
-| Api Key   (header)   |          x-api-key value               | 
-|----------------------|:--------------------------------------:|
-|     x-api-key        |  EE44BAD9-A3DA-46FA-B4E0-7DE7C2681ABF  |
-
-
 ### Spring Boot Data JPA & PostgreSQL
 
 Spring Boot JPA is a Java specification for managing relational data in Java applications.
@@ -568,6 +543,30 @@ API calls can be made on a single url, the url or dns of the gateway based on th
 
 - ```/rating/**``` : routes the requests to the rating service.
 - ```/book/**``` : routes the requests to the book service.
+
+
+```
+@Bean
+public RouteLocator raitingRoute(RouteLocatorBuilder builder) {
+    return builder.routes()
+            .route("rating-service", r -> r.path("/rating/**").filters(f -> f.filter(new ApiKeyFilter()))// static
+                    .uri("lb://RATING-SERVICE"))
+            .build();
+}
+
+@Bean
+public RouteLocator bookRoute(RouteLocatorBuilder builder) {
+    return builder.routes().route("book-service", r -> r.path("/book/**").filters(f -> f.filter(new ApiKeyFilter()))// static
+            .uri("lb://BOOK-SERVICE")) // static
+            .build();
+}
+```
+
+The gateway is secured and calls cannot be made without the api key on the header.
+
+| Api Key   (header)   |          x-api-key value               | 
+|----------------------|:--------------------------------------:|
+|     x-api-key        |  EE44BAD9-A3DA-46FA-B4E0-7DE7C2681ABF  |
 
 The two microservices (rating and book services) are doing their own custom logic and responds back to the gateway.
 
