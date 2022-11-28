@@ -80,7 +80,6 @@ Registration of each services is done by ```application.properties``` configurat
 
 ![Eureka Service Registry](./developer-guide/images/spring-eureka.png)
 
-
 ### Feign Rest Client
 
 The client used for http communications is FeignClient.Feign is a declarative web service client. It makes writing web
@@ -108,7 +107,8 @@ public interface BookRestConsumer {
 
 #### Feign Retry Mechanism
 
-The microservice handling persisting Ratings and calling the book client has retry mechanism enabled.The retries are done if connection errors occurs and it can retry up to 3 times with a backOff policy between retries of 1000 ms.
+The microservice handling persisting Ratings and calling the book client has retry mechanism enabled.The retries are
+done if connection errors occurs and it can retry up to 3 times with a backOff policy between retries of 1000 ms.
 
 ```
 private final int maxAttempts;
@@ -152,8 +152,8 @@ private final int maxAttempts;
 	}
 ```
 
-
 Response example in case of unsuccesfull retry:
+
 ```
 Service unavailable at the moment, please try again later.
 ```
@@ -189,14 +189,21 @@ feign.client.config.default.connectTimeout=6000
 feign.client.config.default.readTimeout=6000
 ``` 
 
-For the error decoder, we specify the package of error decoder.
-Connection timeout and readTimeout is the time needed for the TCP handshake, while the read timeout needed to read data from the socket, if the time exceeds, retry mechanism will start.
+For the error decoder, we specify the package of error decoder. Connection timeout and readTimeout is the time needed
+for the TCP handshake, while the read timeout needed to read data from the socket, if the time exceeds, retry mechanism
+will start.
 
 ### Spring Cloud Gateway
 
-This project provides a library for building an API Gateway on top of Spring WebFlux. Spring Cloud Gateway aims to provide a simple, yet effective way to route to APIs and provide cross cutting concerns to them such as: security, monitoring/metrics, and resiliency.
+This project provides a library for building an API Gateway on top of Spring WebFlux. Spring Cloud Gateway aims to
+provide a simple, yet effective way to route to APIs and provide cross cutting concerns to them such as: security,
+monitoring/metrics, and resiliency.
 
-Since we are using spring cloud gateway, we need also dependency for reactive applications.WebFlux is a Spring reactive-stack web framework. It was added to Spring 5. It is fully non-blocking, supports reactive streams back pressure, and runs on such servers such as Netty, Undertow, and Servlet 3.1+ containers. Spring WebFlux is an alternative to the traditional Spring MVC
+Since we are using spring cloud gateway, we need also dependency for reactive applications.WebFlux is a Spring
+reactive-stack web framework. It was added to Spring 5. It is fully non-blocking, supports reactive streams back
+pressure, and runs on such servers such as Netty, Undertow, and Servlet 3.1+ containers. Spring WebFlux is an
+alternative to the traditional Spring MVC
+
 ```
 <dependency>
     <groupId>org.springframework.boot</groupId>
@@ -277,8 +284,6 @@ class RatingValidationServiceTest {
 ### Integration Testing
 
 Integration testing is done with the help of <strong>WebMvcTest</strong> for testing the controllers.
-
-
 
 ```
 @WebMvcTest(RatingController.class)
@@ -398,18 +403,85 @@ and throw exceptions if criterias aren't met.
 
 ![Swagger UI](./developer-guide/images/book_service_springdoc.png)
 
+## Plugins
+
+### Maven Checkstyle Plugin
+
+The code style used for this project is ```google-style``` for Java.
+
+We have a maven checkstyle plugin which reads rules from ```checkstyle.xml``` and validate the code style.The plugin is
+configured at build process, and in case of any violation of the style the build is will fail.
+
+```
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <version>3.1.1</version>
+        <dependencies>
+            <dependency>
+                <groupId>com.puppycrawl.tools</groupId>
+                <artifactId>checkstyle</artifactId>
+                <version>9.3</version>
+            </dependency>
+            <dependency>
+                <groupId>io.spring.javaformat</groupId>
+                <artifactId>spring-javaformat-checkstyle</artifactId>
+                <version>0.0.35</version>
+            </dependency>
+        </dependencies>
+        <executions>
+            <execution>
+                <id>checkstyle-validation</id>
+                <phase>validate</phase>
+                <inherited>true</inherited>
+                <configuration>
+                    <configLocation>checkstyle.xml</configLocation>
+                    <includeTestSourceDirectory>true</includeTestSourceDirectory>
+                </configuration>
+                <goals>
+                    <goal>check</goal>
+                </goals>
+            </execution>
+        </executio`ns>
+    </plugin>
+```
+
+### Maven Java formatter
+
+In case any of the checkstyle rules breaks we can format automatically the code using the ```io.spring.javaformat``` with the following goal```mvn spring-javaformat:apply```.
+
+```
+   <plugin>
+            <groupId>io.spring.javaformat</groupId>
+            <artifactId>spring-javaformat-maven-plugin</artifactId>
+            <version>0.0.35</version>
+            <executions>
+                <execution>
+                    <phase>validate</phase>
+                    <inherited>true</inherited>
+                    <goals>
+                        <goal>validate</goal>
+                    </goals>
+                </execution>
+            </executions>
+   </plugin>
+```
+
+
 ## Rating and Book Services
 
-### Flow Diagram 
+### Flow Diagram
 
 ![Swagger UI](./developer-guide/images/rating-book-services-flow-diagram.png)
 
 ### Rating Service
 
-Rating service is the service that handles persisting ratings in a separe table, called rating.
-This service also uses a feign client to comunicate with the book service, being able to call the book service and return:
-  
-  - Book object with list of ratings by rating id (<strong>/rating/{bookId]/book</strong>) : the response is a template which contains book object and the list of ratings, the dto is:
+Rating service is the service that handles persisting ratings in a separe table, called rating. This service also uses a
+feign client to comunicate with the book service, being able to call the book service and return:
+
+- Book object with list of ratings by rating id (<strong>/rating/{bookId]/book</strong>) : the response is a template
+  which contains book object and the list of ratings, the dto is:
+
 ```
       public class ResponseTemplate {
 
@@ -441,13 +513,10 @@ Response example (200 OK)
     }]
     }
 ```
-  - Rating object based on book id (<strong>/rating/book/{bookId}</strong>);
 
-
-
+- Rating object based on book id (<strong>/rating/book/{bookId}</strong>);
 
 Response example (200 OK)
-
 
 ```
 [
@@ -464,7 +533,9 @@ Response example (200 OK)
 ]
 ```
 
-Besides the two flows described above, rating service implements the basic CRUD operations for creating ratings, documentation for endpoints can be found on swagger ui [here](http://localhost:9009/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config).
+Besides the two flows described above, rating service implements the basic CRUD operations for creating ratings,
+documentation for endpoints can be found on swagger
+ui [here](http://localhost:9009/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config).
 
 ### Rating entity model
 
@@ -494,15 +565,16 @@ public class Rating {
 |     rating.bookId      |  Check if long   field is empty/null       | rating.bookId cannot be null or empty                    |
 |     book.stars         |  Check if value is between 0 and 5         | rating.stars cannot be less than 0 or greater than 5     |
 
-
-In case of any of the validations from above breaks, a ValidationException will be thrown which is handled by a ```@ControllerAdvice```.
+In case of any of the validations from above breaks, a ValidationException will be thrown which is handled by
+a ```@ControllerAdvice```.
 
 ## Book service
 
-Principal responsability of this microservice is to persist data into the book table, the service doesn't have a feign client and it s used by the rating service trough a feign client to get the book data.
+Principal responsability of this microservice is to persist data into the book table, the service doesn't have a feign
+client and it s used by the rating service trough a feign client to get the book data.
 
-Book service implements basic CRUD operations for persisting books in the book table, documentation for endpoints can be found on swagger ui [here](http://localhost:9560/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config).
-
+Book service implements basic CRUD operations for persisting books in the book table, documentation for endpoints can be
+found on swagger ui [here](http://localhost:9560/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config).
 
 ### Book entity model
 
@@ -532,8 +604,8 @@ public class Book {
 |     book.author      |  Check if string field is empty/null       | book.author cannot be null or empty              |
 |     book.title       |  Check if string field is empty/null       | book.title cannot be null or empty               |
 
-
-In case of any of the validations from above breaks, a ValidationException will be thrown which is handled by a ```@ControllerAdvice```.
+In case of any of the validations from above breaks, a ValidationException will be thrown which is handled by
+a ```@ControllerAdvice```.
 
 ## API Gateway
 
@@ -543,7 +615,6 @@ API calls can be made on a single url, the url or dns of the gateway based on th
 
 - ```/rating/**``` : routes the requests to the rating service.
 - ```/book/**``` : routes the requests to the book service.
-
 
 ```
 @Bean
@@ -572,12 +643,176 @@ The two microservices (rating and book services) are doing their own custom logi
 
 ## Discovery Service
 
-In a microservices application, the set of running service instances changes dynamically. Instances have dynamically assigned network locations. Consequently, in order for a client to make a request to a service it must use a service‑discovery mechanism.
+In a microservices application, the set of running service instances changes dynamically. Instances have dynamically
+assigned network locations. Consequently, in order for a client to make a request to a service it must use a
+service‑discovery mechanism.
 
 The main annotation that enables the discovery of the microservices is ```@EnableEurekaServer```.
 
-The microservices also needs to use the annotation ```@EnableEurekaClient``` and the eureka server can discovery the services.
+The microservices also needs to use the annotation ```@EnableEurekaClient``` and the eureka server can discovery the
+services.
 
 On the Eureka dashboard we are able to see informations about the resources used.
 
 ![Eureka Service Registry](./developer-guide/images/spring-eureka.png)
+
+## Docker 
+
+For each of the microservices there is a ```Dockerfile``` which can create images for all microservices.
+
+Dockerfile sample
+
+```
+FROM adoptopenjdk/openjdk11:alpine-jre
+
+ADD target/rating-service-*.jar app.jar
+ENTRYPOINT ["java","-jar","app.jar"]
+```
+
+For building the services there is a ```docker-compose.yml``` containing the metadata for bulding each service and a PostgreSQL database.
+
+
+Docker compose sample
+
+```
+version: '3.7'
+services:
+
+  db:
+    image: 'postgres:13.1-alpine'
+    container_name: db
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=compose-postgres
+      - POSTGRES_PASSWORD=compose-postgres
+
+
+  discovery-service:
+    build: ./discovery-service
+    ports:
+      - "8761:8761"
+    environment:
+      - server.port=8761
+
+  gateway:
+    build: ./gateway
+    ports:
+      - "8081:8081"
+    depends_on:
+      - discovery-service
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://discovery-service:8761/eureka/
+
+
+  # book-service
+  book-service:
+    build: ./book-service
+    ports:
+      - "9560:9560"
+    depends_on:
+      - db
+      - discovery-service
+    environment:
+      - server.port=9560
+      - eureka.client.serviceUrl.defaultZone=http://discovery-service:8761/eureka/
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/compose-postgres
+      - SPRING_DATASOURCE_USERNAME=compose-postgres
+      - SPRING_DATASOURCE_PASSWORD=compose-postgres
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+
+  # rating-service
+  rating-service:
+    build: ./rating-service
+    ports:
+      - "9009:9009"
+    depends_on:
+      - db
+      - discovery-service
+    environment:
+      - server.port=9009
+      - eureka.client.serviceUrl.defaultZone=http://discovery-service:8761/eureka/
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/compose-postgres
+      - SPRING_DATASOURCE_USERNAME=compose-postgres
+      - SPRING_DATASOURCE_PASSWORD=compose-postgres
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+```
+
+In order to build and run the applications follow the steps:
+
+   1. ```docker-compose build```
+   2. ```docker-compose up -d```
+
+## CI/CD 
+
+CI/CD is a method to frequently deliver apps to customers by introducing automation into the stages of app development. 
+
+The project used github actions for CI/CD with two pipelines:
+
+- Pipeline for feature branches.
+- Pipeline on master branch.
+
+The configuration for the pipelines can be found inside ```./github``` folder, ```build.yml``` is the configuration for feature branches and ```deploy.yml``` is the configuration for master pipeline.
+
+### Pipeline for feature branches
+
+This pipeline will run on feature branches at every commit & push and it s purpose is to not let new code merged inside master branch if all the checks are not passing.
+
+![Feature Branch Pipeline](./developer-guide/images/feature-branch-pipe.png)
+
+Besides building the project, running the tests and checks from the plugins we are scanning the each image for OWASP vulerabilities using ZAP Scanning along with the docker-compose.
+
+Owasp job sample
+```
+owasp:
+#Depends on tests's job
+needs: tests
+name: OWASP ZAP SCANS All Services
+runs-on: ubuntu-latest
+steps:
+- uses: actions/checkout@v2
+- name: Package
+run: mvn clean package
+- name: Building Docker Service Images
+run: docker-compose build
+- name: Run all services
+run: docker-compose up -d
+
+      - name: Sleep for 30 seconds
+        uses: jakejarvis/wait-action@master
+        with:
+          time: '30s'
+
+      - name: OWASP ZAP Baseline Scan BookService
+        uses: zaproxy/action-baseline@v0.7.0
+        with:
+          target: 'http://localhost:9560'
+          issue_title: OWASP Security Testing BookService
+
+      - name: OWASP ZAP Baseline Scan RatingService
+        uses: zaproxy/action-baseline@v0.7.0
+        with:
+          target: 'http://localhost:9009'
+          issue_title: OWASP Security Testing RatingService
+
+      - name: OWASP ZAP Baseline Scan DiscoveryService
+        uses: zaproxy/action-baseline@v0.7.0
+        with:
+          target: 'http://localhost:8761'
+          issue_title: OWASP Security Testing Discovery Service
+
+      - name: OWASP ZAP Baseline Gateway
+        uses: zaproxy/action-baseline@v0.7.0
+        with:
+          target: 'http://localhost:8081'
+          issue_title: OWASP Security Testing Gateway
+```
+
+For each of the scannings, a github bot will open issues inside the repository with the report from the scans.
+![Owasp](./developer-guide/images/owasp.png)
+
+### Pipeline for master branch
+
+The purpose of this branch is to build and simulate deploying the code once the code from the PR's are merged into master.It has only one job, which is bulding the application and creating the artifact.
+![Deploy Pipeline](./developer-guide/images/master_pipeline.png)
+
