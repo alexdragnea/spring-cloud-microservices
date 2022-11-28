@@ -579,4 +579,6 @@ The main annotation that enables the discovery of the microservices is ```@Enabl
 
 The microservices also needs to use the annotation ```@EnableEurekaClient``` and the eureka server can discovery the services.
 
+On the Eureka dashboard we are able to see informations about the resources used.
+
 ![Eureka Service Registry](./developer-guide/images/spring-eureka.png)
