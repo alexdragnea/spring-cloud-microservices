@@ -571,3 +571,12 @@ API calls can be made on a single url, the url or dns of the gateway based on th
 
 The two microservices (rating and book services) are doing their own custom logic and responds back to the gateway.
 
+## Discovery Service
+
+In a microservices application, the set of running service instances changes dynamically. Instances have dynamically assigned network locations. Consequently, in order for a client to make a request to a service it must use a service‑discovery mechanism.
+
+The main annotation that enables the discovery of the microservices is ```@EnableEurekaServer```.
+
+The microservices also needs to use the annotation ```@EnableEurekaClient``` and the eureka server can discovery the services.
+
+![Eureka Service Registry](./developer-guide/images/spring-eureka.png)
