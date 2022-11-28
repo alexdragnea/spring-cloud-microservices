@@ -151,6 +151,15 @@ private final int maxAttempts;
 		return new CustomRetryer(backoff, maxAttempts);
 	}
 ```
+
+
+Response example in case of unsuccesfull retry:
+```
+Service unavailable at the moment, please try again later.
+```
+
+![Retry example](./developer-guide/images/retry-demo.png)
+
 #### Feign Error Decoder
 
 The FeignClient has an error decoder which returns an Retryable Exception in case 503/408 http statuses.
@@ -169,6 +178,20 @@ public Exception decode(String methodKey, Response response) {
 
 	}
 ```
+
+#### FeignClient configurations
+
+Inside ```application.properties``` we have the configuration for feign client as follows:
+
+```
+feign.client.config.default.error-decoder=net.dg.ratingservice.feign.errordecoder.FeignErrorDecoder
+feign.client.config.default.connectTimeout=6000
+feign.client.config.default.readTimeout=6000
+``` 
+
+For the error decoder, we specify the package of error decoder.
+Connection timeout and readTimeout is the time needed for the TCP handshake, while the read timeout needed to read data from the socket, if the time exceeds, retry mechanism will start.
+
 ### Spring Cloud Gateway
 
 This project provides a library for building an API Gateway on top of Spring WebFlux. Spring Cloud Gateway aims to provide a simple, yet effective way to route to APIs and provide cross cutting concerns to them such as: security, monitoring/metrics, and resiliency.
@@ -207,7 +230,7 @@ The gateway is secured and calls cannot be made without the api key on the heade
 
 | Api Key   (header)   |          x-api-key value               | 
 |----------------------|:--------------------------------------:|
-|     x-api-key        |  EE44BAD9-A3DA-46FA-B4E0-7DE7C2681ABF  |~~~~ 
+|     x-api-key        |  EE44BAD9-A3DA-46FA-B4E0-7DE7C2681ABF  |
 
 
 ### Spring Boot Data JPA & PostgreSQL
@@ -278,7 +301,7 @@ class RatingValidationServiceTest {
 
 ### Integration Testing
 
-Integration testing is done with WebMockMvc for testing the controllers.
+Integration testing is done with the help of <strong>WebMvcTest</strong> for testing the controllers.
 
 
 
@@ -359,7 +382,7 @@ Architectural tests:
 - Naming convention
 - Layer Dependency Rules Tes
 
-Archunit is managed by JUnit runner, if architectural tests are failing, the whole build goal will fail.
+Archunit is managed by JUnit runner, if architectural tests are failing, the whole test goal will fail.
 
 ### Jakarta Validation Api
 
@@ -400,7 +423,151 @@ and throw exceptions if criterias aren't met.
 
 ![Swagger UI](./developer-guide/images/book_service_springdoc.png)
 
-### Rating/Book Services
+## Rating and Book Services
 
-The main microservices are Spring Boot based projects 
+### Flow Diagram 
+
+![Swagger UI](./developer-guide/images/rating-book-services-flow-diagram.png)
+
+### Rating Service
+
+Rating service is the service that handles persisting ratings in a separe table, called rating.
+This service also uses a feign client to comunicate with the book service, being able to call the book service and return:
+  
+  - Book object with list of ratings by rating id (<strong>/rating/{bookId]/book</strong>) : the response is a template which contains book object and the list of ratings, the dto is:
+```
+      public class ResponseTemplate {
+
+      private Book book;
+
+      private List<Rating> ratingList;
+
+}
+```
+
+Response example (200 OK)
+
+```
+    {
+    "book": {
+        "id": 1,
+         "author": "test",
+         "title": "test"
+    },
+    "ratingList": [{
+        "id": 1,
+        "bookId": 1,
+        "stars": 2
+    },
+    {
+        "id": 12,
+         "bookId": 1,
+         "stars": 5
+    }]
+    }
+```
+  - Rating object based on book id (<strong>/rating/book/{bookId}</strong>);
+
+
+
+
+Response example (200 OK)
+
+
+```
+[
+  {
+    "id": 1,
+    "bookId": 1,
+    "stars": 2
+  },
+  {
+    "id": 12,
+    "bookId": 1,
+    "stars": 5
+  }
+]
+```
+
+Besides the two flows described above, rating service implements the basic CRUD operations for creating ratings, documentation for endpoints can be found on swagger ui [here](http://localhost:9009/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config).
+
+### Rating entity model
+
+```
+@Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Rating {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+
+	private Long bookId;
+
+	private int stars;
+
+}
+```
+
+### Validation Request
+
+| Field                  |          Validation Rule                   |        Message                                           |
+|------------------------|:------------------------------------------:|:---------------------------------------------------------|
+|     rating             |  Check if object is null                   | Rating object cannot be null or empty                    |
+|     rating.bookId      |  Check if long   field is empty/null       | rating.bookId cannot be null or empty                    |
+|     book.stars         |  Check if value is between 0 and 5         | rating.stars cannot be less than 0 or greater than 5     |
+
+
+In case of any of the validations from above breaks, a ValidationException will be thrown which is handled by a ```@ControllerAdvice```.
+
+## Book service
+
+Principal responsability of this microservice is to persist data into the book table, the service doesn't have a feign client and it s used by the rating service trough a feign client to get the book data.
+
+Book service implements basic CRUD operations for persisting books in the book table, documentation for endpoints can be found on swagger ui [here](http://localhost:9560/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config).
+
+
+### Book entity model
+
+```
+@Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+public class Book {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+
+	private String author;
+
+	private String title;
+
+}
+```
+
+### Validation Request
+
+| Field                |          Validation Rule                   |        Message                                   |
+|----------------------|:------------------------------------------:|:-------------------------------------------------|
+|     book             |  Check if object is null                   | Book object cannot be null or empty              |
+|     book.author      |  Check if string field is empty/null       | book.author cannot be null or empty              |
+|     book.title       |  Check if string field is empty/null       | book.title cannot be null or empty               |
+
+
+In case of any of the validations from above breaks, a ValidationException will be thrown which is handled by a ```@ControllerAdvice```.
+
+## API Gateway
+
+The purpose of the Gateway service is to dynamic load balancing on book and rating services.
+
+API calls can be made on a single url, the url or dns of the gateway based on the following endpoints:
+
+- ```/rating/**``` : routes the requests to the rating service.
+- ```/book/**``` : routes the requests to the book service.
+
+The two microservices (rating and book services) are doing their own custom logic and responds back to the gateway.
 
