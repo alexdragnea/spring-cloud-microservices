@@ -78,7 +78,7 @@ Registration of each services is done by ```application.properties``` configurat
     spring.datasource.url=jdbc:postgresql://localhost:5433/cloud
 ```
 
-![Eureka Service Registry](./developer-guide/images/microservices_architecture.png)
+![Eureka Service Registry](./developer-guide/images/spring-eureka.png)
 
 
 ### Feign Rest Client
