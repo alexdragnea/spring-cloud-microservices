@@ -809,10 +809,17 @@ run: docker-compose up -d
 ```
 
 For each of the scannings, a github bot will open issues inside the repository with the report from the scans.
+
 ![Owasp](./developer-guide/images/owasp.png)
 
 ### Pipeline for master branch
 
 The purpose of this branch is to build and simulate deploying the code once the code from the PR's are merged into master.It has only one job, which is bulding the application and creating the artifact.
+
 ![Deploy Pipeline](./developer-guide/images/master_pipeline.png)
+
+
+## Postman Collection
+
+Postman collection can be found [here](./developer-guide/postman-collection).
 
