@@ -1,5 +1,17 @@
 # Spring Cloud Microservices
 
+## Team Structure
+
+
+### Members of the Decanii's team
+
+  - Dragnea Alexandru Marian (Development Design Lead)
+  - Coman Laurentiu Andrei (Devops)
+  - Antofi Ionut (Junior Developer)
+  - David Vlad (Junior Developer)
+  - Chisulescu Mihai (Tester)
+
+
 ## Microservices Architecture
 
 ![Flow Diagram](./developer-guide/images/microservices_architecture.png)
@@ -476,6 +488,8 @@ In case any of the checkstyle rules breaks we can format automatically the code 
 
 ### Rating Service
 
+![Book Service Class Diagram](./developer-guide/images/rating-service-class-diagram.png)
+
 Rating service is the service that handles persisting ratings in a separe table, called rating. This service also uses a
 feign client to comunicate with the book service, being able to call the book service and return:
 
@@ -569,6 +583,8 @@ In case of any of the validations from above breaks, a ValidationException will 
 a ```@ControllerAdvice```.
 
 ## Book service
+
+![Book Service Class Diagram](./developer-guide/images/book-service-class-diagram.png)
 
 Principal responsability of this microservice is to persist data into the book table, the service doesn't have a feign
 client and it s used by the rating service trough a feign client to get the book data.
